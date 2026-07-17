@@ -122,11 +122,11 @@ button {
   flex-direction: column;
 }
 
-/* 顶部：今日 / 工具等间距；无状态栏/标题，直接进内容 */
+/* 顶部工具区 */
 .top-stack {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0;
   margin: 0;
   padding: calc(8px + env(safe-area-inset-top, 0px)) 0 8px;
   background: #f3f3f3;
