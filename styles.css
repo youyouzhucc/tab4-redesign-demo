@@ -1656,46 +1656,6 @@ button {
   font-style: normal;
 }
 
-.notes {
-  padding: 8px 4px 0;
-  animation: rise 0.6s ease 0.1s both;
-}
-
-.notes h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-
-.notes ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.notes li {
-  position: relative;
-  padding: 14px 16px 14px 18px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(18, 32, 26, 0.06);
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--ink-soft);
-}
-
-.notes li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 14px;
-  bottom: 14px;
-  width: 3px;
-  border-radius: 999px;
-  background: var(--green);
-}
-
 @keyframes rise {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: none; }
