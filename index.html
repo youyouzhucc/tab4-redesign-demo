@@ -2,179 +2,17 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>95分 · 第四 Tab 改版 Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>我的好物</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="page">
-    <header class="hero">
-      <p class="brand">95分</p>
-      <h1>第四 Tab 改版方向</h1>
-      <p class="lead">第四 Tab 改版：消息承接 vs 我的好物（想买侧：想要/还价；我有侧：我有/AI估价）。</p>
-      <div class="switcher" role="tablist" aria-label="方案切换">
-        <button class="switch-btn" type="button" data-demo="msg" role="tab" aria-selected="false">
-          <span class="switch-kicker">方案 A</span>
-          <span class="switch-title">消息提醒</span>
-          <span class="switch-desc">把通知做成一级页面承接</span>
-        </button>
-        <button class="switch-btn active" type="button" data-demo="vault" role="tab" aria-selected="true">
-          <span class="switch-kicker">方案 B</span>
-          <span class="switch-title">我的好物</span>
-          <span class="switch-desc">想买 + 我有，两端承接</span>
-        </button>
-      </div>
-    </header>
-
-    <div class="stage">
-      <!-- ========== Demo A: 消息 ========== -->
-      <section class="phone demo-panel" id="demo-msg" data-demo="msg" aria-label="方案 A 消息提醒" hidden>
-        <div class="status-bar">
-          <span>9:41</span>
-          <span class="status-icons" aria-hidden="true">
-            <i></i><i></i><i></i>
-          </span>
-        </div>
-
-        <header class="nav">
-          <div>
-            <h2 class="nav-title">消息</h2>
-            <p class="nav-sub">3 条待处理 · 交易优先提醒</p>
-          </div>
-          <button class="ghost-btn" type="button" id="msgReadAll">全部已读</button>
-        </header>
-
-        <div class="chips" id="msgChips" role="tablist">
-          <button class="chip active" type="button" data-filter="all">全部 <em>8</em></button>
-          <button class="chip" type="button" data-filter="deal">交易 <em>3</em></button>
-          <button class="chip" type="button" data-filter="price">降价 <em>2</em></button>
-          <button class="chip" type="button" data-filter="sys">服务 <em>3</em></button>
-        </div>
-
-        <main class="scroll" id="msgList">
-          <article class="msg unread" data-type="deal">
-            <div class="msg-thumb deal">议</div>
-            <div class="msg-body">
-              <div class="msg-top">
-                <strong>买家还价 · Dunk Low</strong>
-                <time>刚刚</time>
-              </div>
-              <p>对方出价 <b>¥468</b>，距你的挂价差 ¥31</p>
-              <div class="msg-actions">
-                <button type="button" class="mini primary">去处理</button>
-                <button type="button" class="mini">忽略</button>
-              </div>
-            </div>
-            <span class="dot"></span>
-          </article>
-
-          <article class="msg unread" data-type="deal">
-            <div class="msg-thumb product" style="--img: linear-gradient(135deg,#1a1a1a,#3d3d3d)"></div>
-            <div class="msg-body">
-              <div class="msg-top">
-                <strong>待付款即将关闭</strong>
-                <time>12 分钟前</time>
-              </div>
-              <p>New Balance 550 · 订单将在 28 分钟后自动取消</p>
-              <div class="msg-actions">
-                <button type="button" class="mini primary">去付款</button>
-              </div>
-            </div>
-            <span class="dot"></span>
-          </article>
-
-          <article class="msg unread" data-type="price">
-            <div class="msg-thumb product" style="--img: linear-gradient(135deg,#c8f0dc,#2bb673)"></div>
-            <div class="msg-body">
-              <div class="msg-top">
-                <strong>收藏降价</strong>
-                <time>1 小时前</time>
-              </div>
-              <p>Air Jordan 1 Low · <s>¥899</s> → <b class="down">¥812</b></p>
-              <div class="msg-actions">
-                <button type="button" class="mini primary">去看看</button>
-                <button type="button" class="mini">设提醒</button>
-              </div>
-            </div>
-            <span class="dot"></span>
-          </article>
-
-          <article class="msg" data-type="deal">
-            <div class="msg-thumb product" style="--img: linear-gradient(135deg,#f3e7d3,#c9a36a)"></div>
-            <div class="msg-body">
-              <div class="msg-top">
-                <strong>查验通过 · 待发货</strong>
-                <time>昨天</time>
-              </div>
-              <p>你出售的 Coach 托特包已入仓鉴别通过</p>
-            </div>
-          </article>
-
-          <article class="msg" data-type="price">
-            <div class="msg-thumb product" style="--img: linear-gradient(135deg,#dfe8ff,#6b7fd7)"></div>
-            <div class="msg-body">
-              <div class="msg-top">
-                <strong>到价提醒</strong>
-                <time>昨天</time>
-              </div>
-              <p>你关注的 Samba OG 已跌破目标价 ¥620</p>
-            </div>
-          </article>
-
-          <article class="msg" data-type="sys">
-            <div class="msg-thumb sys">服</div>
-            <div class="msg-body">
-              <div class="msg-top">
-                <strong>鉴别报告已出</strong>
-                <time>2 天前</time>
-              </div>
-              <p>自助鉴别结果：正品 · 可一键挂售</p>
-              <div class="msg-actions">
-                <button type="button" class="mini">查看报告</button>
-                <button type="button" class="mini primary">去卖闲置</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="msg" data-type="sys">
-            <div class="msg-thumb sys">券</div>
-            <div class="msg-body">
-              <div class="msg-top">
-                <strong>运费券即将过期</strong>
-                <time>2 天前</time>
-              </div>
-              <p>满 99 减 10 · 还剩 1 天</p>
-            </div>
-          </article>
-
-          <article class="msg" data-type="sys">
-            <div class="msg-thumb sys">安</div>
-            <div class="msg-body">
-              <div class="msg-top">
-                <strong>账户安全提醒</strong>
-                <time>周一</time>
-              </div>
-              <p>新设备登录成功，如非本人请修改密码</p>
-            </div>
-          </article>
-
-          <p class="list-foot">鉴别工具已收拢至「我的 · 工具箱」</p>
-        </main>
-
-        <nav class="tabbar" aria-label="底部导航">
-          <button type="button" class="tab"><span class="tab-ico">⌂</span><span>首页</span></button>
-          <button type="button" class="tab muted"><span class="tab-ico">▦</span><span>集市</span></button>
-          <button type="button" class="tab"><span class="tab-svg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8" stroke-linecap="round"/></svg></span><span>卖闲置</span></button>
-          <button type="button" class="tab on"><span class="tab-ico">✉</span><span>消息</span><i class="badge">3</i></button>
-          <button type="button" class="tab"><span class="tab-ico">◎</span><span>我的</span></button>
-        </nav>
-      </section>
-
-      <!-- ========== Demo B: 藏品（价值 + 工具）========== -->
-      <section class="phone phone-app demo-panel active" id="demo-vault" data-demo="vault" aria-label="方案 B 我的好物">
+<section class="phone phone-app" id="demo-vault" aria-label="我的好物">
         <div class="status-bar status-bar-app">
           <span>9:41</span>
           <span class="status-icons" aria-hidden="true">
@@ -771,19 +609,6 @@
           </button>
         </nav>
       </section>
-
-      <aside class="notes" id="notes">
-        <h3 id="notesTitle">方案 B · 我的好物</h3>
-        <ul id="notesList">
-          <li>顶部静态「今日行情」日更播报。</li>
-          <li>去掉模块标题；黑白灰方便评审结构。</li>
-          <li>列表点曲线看行情；还价状态小字。</li>
-          <li>AI估价成功提供去出售。</li>
-        </ul>
-      </aside>
-    </div>
-  </div>
-
   <script src="app.js"></script>
 </body>
 </html>

@@ -1,25 +1,4 @@
 (() => {
-  const NOTES = {
-    msg: {
-      title: "方案 A · 消息提醒",
-      items: [
-        "把高频、强动机的交易/降价/服务触达做成一级入口，强化「回来做事」。",
-        "红点与待处理数直接挂在 Tab，比工具页更容易形成回访习惯。",
-        "鉴别能力不删，可与藏品方案并存或下沉到消息动作。",
-        "风险：内容偏运营通知时，容易变成「通知箱」，需严格交易优先排序。",
-      ],
-    },
-    vault: {
-      title: "方案 B · 我的好物",
-      items: [
-        "汇总与清单 Tab 合并，避免重复导航。",
-        "今日消息聚焦想要/我有价格行情。",
-        "工具线框入口；黑白灰方便评审结构。",
-        "点汇总项即可切换下方列表。",
-      ],
-    },
-  };
-
   const TOOLS = {
     auth: {
       title: "鉴别真假",
@@ -267,70 +246,6 @@
       cta: "立即购买",
     },
   };
-
-  const switchBtns = document.querySelectorAll(".switch-btn");
-  const panels = document.querySelectorAll(".demo-panel");
-  const notesTitle = document.getElementById("notesTitle");
-  const notesList = document.getElementById("notesList");
-
-  function renderNotes(key) {
-    const data = NOTES[key];
-    notesTitle.textContent = data.title;
-    notesList.innerHTML = data.items.map((t) => `<li>${t}</li>`).join("");
-  }
-
-  function switchDemo(key) {
-    switchBtns.forEach((btn) => {
-      const on = btn.dataset.demo === key;
-      btn.classList.toggle("active", on);
-      btn.setAttribute("aria-selected", on ? "true" : "false");
-    });
-
-    panels.forEach((panel) => {
-      const on = panel.dataset.demo === key;
-      panel.classList.toggle("active", on);
-      if (on) {
-        panel.hidden = false;
-        panel.style.animation = "none";
-        void panel.offsetWidth;
-        panel.style.animation = "";
-      } else {
-        panel.hidden = true;
-      }
-    });
-
-    renderNotes(key);
-  }
-
-  switchBtns.forEach((btn) => {
-    btn.addEventListener("click", () => switchDemo(btn.dataset.demo));
-  });
-
-  const chips = document.getElementById("msgChips");
-  const msgs = document.querySelectorAll("#msgList .msg");
-
-  chips?.addEventListener("click", (e) => {
-    const chip = e.target.closest(".chip");
-    if (!chip) return;
-    chips.querySelectorAll(".chip").forEach((c) => c.classList.remove("active"));
-    chip.classList.add("active");
-    const filter = chip.dataset.filter;
-    msgs.forEach((msg) => {
-      const show = filter === "all" || msg.dataset.type === filter;
-      msg.classList.toggle("hidden-filter", !show);
-    });
-  });
-
-  document.getElementById("msgReadAll")?.addEventListener("click", () => {
-    document.querySelectorAll("#msgList .msg.unread").forEach((msg) => {
-      msg.classList.remove("unread");
-      msg.querySelector(".dot")?.remove();
-    });
-    const badge = document.querySelector("#demo-msg .badge");
-    if (badge) badge.style.display = "none";
-    const sub = document.querySelector("#demo-msg .nav-sub");
-    if (sub) sub.textContent = "暂无待处理 · 有新动态会提醒你";
-  });
 
   const vaultTabs = document.getElementById("vaultTabs");
 
