@@ -106,7 +106,6 @@ button {
 
 .phone > .status-bar,
 .phone > .nav,
-.phone > .page-head,
 .phone > .top-stack,
 .phone > .list-module,
 .phone > .zone,
@@ -116,22 +115,6 @@ button {
   flex-shrink: 0;
 }
 
-/* 左对齐页面标题，无返回按钮（对齐原生 Tab 页） */
-.page-head {
-  background: #fff;
-  padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 10px;
-}
-
-.page-title {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-  color: #111;
-  text-align: left;
-}
-
 .phone > .list-module {
   flex: 1;
   min-height: 0;
@@ -139,13 +122,13 @@ button {
   flex-direction: column;
 }
 
-/* 顶部：今日 / 工具等间距 */
+/* 顶部：今日 / 工具等间距；无状态栏/标题，直接进内容 */
 .top-stack {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin: 0;
-  padding: 8px 0;
+  padding: calc(8px + env(safe-area-inset-top, 0px)) 0 8px;
   background: #f3f3f3;
 }
 
