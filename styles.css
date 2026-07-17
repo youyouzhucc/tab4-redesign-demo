@@ -526,7 +526,7 @@ button {
 
 .summary-bar {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   align-items: stretch;
   margin: 0;
   padding: 0;
@@ -611,16 +611,20 @@ button {
   background: #ececec;
 }
 
-/* 工具入口：线框图标 + 列表式，减少卡片噪音 */
+/* 工具入口：仅鉴别，通栏 */
 .tool-menu {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 0;
   padding: 0;
   border-radius: 0;
   background: #fff;
   border: none;
   overflow: hidden;
+}
+
+.tool-menu-single .tool-card {
+  padding: 14px 16px;
 }
 
 .tool-menu .tool-card {
