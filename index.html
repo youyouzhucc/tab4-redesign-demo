@@ -5,26 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
-  <title>我的好物</title>
+  <title>好物</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<section class="phone phone-app" id="demo-vault" aria-label="我的好物">
+<section class="phone phone-app" id="demo-vault" aria-label="好物">
         <div class="top-stack">
-          <div class="news-ticker" aria-label="今日行情">
-            <div class="ticker-head">
-              <span class="ticker-label">今日行情</span>
-              <span class="ticker-time">07:30 更新</span>
-            </div>
-            <ul class="ticker-list">
-              <li>想要 · AJ1 Low 7日 -¥87，Samba 行情走弱</li>
-              <li>我有 · Coach 估值 +¥120，Dunk 成交走热</li>
-            </ul>
-          </div>
-
           <section class="tool-menu tool-menu-single" aria-label="鉴别工具">
             <button class="tool-card" type="button" data-tool="auth">
               <span class="tool-card-ico" aria-hidden="true">
@@ -40,11 +29,10 @@
               <span class="tool-card-arrow" aria-hidden="true">›</span>
             </button>
           </section>
-
         </div>
 
         <div class="list-module">
-          <section class="summary-bar" id="vaultTabs" role="tablist" aria-label="我的清单">
+          <section class="summary-bar" id="vaultTabs" role="tablist" aria-label="清单">
             <button type="button" class="summary-cell active" data-pane="want" role="tab" aria-selected="true">
               <span class="summary-label">想要</span>
               <strong class="summary-value heiti" id="wantCount">10</strong>
@@ -56,7 +44,7 @@
               <span class="summary-sub warn">2待处理</span>
             </button>
             <button type="button" class="summary-cell" data-pane="have" role="tab" aria-selected="false">
-              <span class="summary-label">我有</span>
+              <span class="summary-label">持有</span>
               <strong class="summary-value heiti">6</strong>
               <span class="summary-sub up">估值 +¥210</span>
             </button>
@@ -495,11 +483,11 @@
             </span>
             <span>闲置换钱</span>
           </button>
-          <button type="button" class="tab on" aria-label="我的好物，有新消息">
+          <button type="button" class="tab on" aria-label="好物，有新消息">
             <span class="tab-svg" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg>
             </span>
-            <span>我的好物</span>
+            <span>好物</span>
             <i class="tab-dot" aria-hidden="true"></i>
           </button>
           <button type="button" class="tab">

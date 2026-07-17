@@ -1,10 +1,10 @@
-# 我的好物 · Demo
+# 好物 · Demo
 
 95分第四 Tab 交互原型（手机全屏打开）。
 
 ## 在线访问
 
-https://youyouzhucc.github.io/tab4-redesign-demo/
+https://youyouzhucc.github.io/tab4-redesign-demo/?v=3
 
 ## 本地预览
 
