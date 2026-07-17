@@ -4,7 +4,7 @@
 
 ## 在线访问
 
-https://youyouzhucc.github.io/tab4-redesign-demo/?v=3
+https://youyouzhucc.github.io/tab4-redesign-demo/?v=5
 
 ## 本地预览
 
