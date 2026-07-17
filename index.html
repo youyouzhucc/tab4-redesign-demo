@@ -11,24 +11,58 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
 <section class="phone phone-app" id="demo-vault" aria-label="好物">
         <div class="top-stack">
-          <section class="tool-menu tool-menu-single" aria-label="鉴别工具">
-            <button class="tool-card" type="button" data-tool="auth">
-              <span class="tool-card-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 3l7 3v5c0 4.2-2.7 7.9-7 9.5C7.7 18.9 5 15.2 5 11V6l7-3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-                  <path d="M9.6 11.4l1.7 1.7 3.3-3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <span class="tool-card-text">
-                <strong class="heiti">鉴别真假</strong>
-                <em>拍照识真伪 · 假一赔三</em>
-              </span>
-              <span class="tool-card-arrow" aria-hidden="true">›</span>
+          <section class="auth-panel" aria-label="鉴别工具">
+            <div class="auth-panel-head">
+              <div class="auth-panel-title">
+                <strong class="heiti">正品闲置鉴别</strong>
+                <em>假一赔三 · 平台兜底</em>
+              </div>
+              <button type="button" class="auth-count" data-tool="auth">
+                <b class="heiti">15.8亿+</b>
+                <span>累计鉴别 ›</span>
+              </button>
+            </div>
+            <p class="auth-guide">选类目拍图，最快约 1 分钟出结果</p>
+            <div class="auth-cats" role="list">
+              <button type="button" class="auth-cat" data-tool="auth" role="listitem">
+                <i class="auth-cat-ico" aria-hidden="true">鞋</i>
+                <span>鞋靴</span>
+                <em>6.2亿+</em>
+              </button>
+              <button type="button" class="auth-cat" data-tool="auth" role="listitem">
+                <i class="auth-cat-ico" aria-hidden="true">包</i>
+                <span>箱包</span>
+                <em>3.1亿+</em>
+              </button>
+              <button type="button" class="auth-cat" data-tool="auth" role="listitem">
+                <i class="auth-cat-ico" aria-hidden="true">表</i>
+                <span>腕表</span>
+                <em>1.4亿+</em>
+              </button>
+              <button type="button" class="auth-cat" data-tool="auth" role="listitem">
+                <i class="auth-cat-ico" aria-hidden="true">玩</i>
+                <span>潮玩</span>
+                <em>9800万+</em>
+              </button>
+              <button type="button" class="auth-cat" data-tool="auth" role="listitem">
+                <i class="auth-cat-ico" aria-hidden="true">妆</i>
+                <span>美妆</span>
+                <em>7200万+</em>
+              </button>
+              <button type="button" class="auth-cat" data-tool="auth" role="listitem">
+                <i class="auth-cat-ico more" aria-hidden="true">···</i>
+                <span>更多</span>
+                <em>全类目</em>
+              </button>
+            </div>
+            <button type="button" class="auth-cta" data-tool="auth">
+              <strong>拍图鉴别</strong>
+              <span>超多类目 · 首单免费</span>
             </button>
           </section>
         </div>
@@ -500,6 +534,6 @@
           </button>
         </nav>
       </section>
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
