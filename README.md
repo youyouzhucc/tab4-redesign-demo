@@ -13,6 +13,5 @@ python3 -m http.server 8766
 
 ## 在线访问
 
-若已开启 GitHub Pages，访问仓库 Settings → Pages 中的地址，或：
-
-`https://<your-username>.github.io/<repo-name>/`
+- 仓库：https://github.com/youyouzhucc/tab4-redesign-demo  
+- 页面：https://youyouzhucc.github.io/tab4-redesign-demo/
