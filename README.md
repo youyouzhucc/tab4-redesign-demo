@@ -1,10 +1,16 @@
-# 好物 · Demo
+# 95分 · 第四 Tab Demo
 
-95分第四 Tab 交互原型（手机全屏打开）。
+两个方向，手机打开即全屏：
 
-## 在线访问
+## 方案：好物（资产清单）
 
-https://youyouzhucc.github.io/tab4-redesign-demo/?v=5
+想要 / 还价 / 持有 + 鉴别模块  
+https://youyouzhucc.github.io/tab4-redesign-demo/?v=6
+
+## 方案：消息 + 工具（类似得物探索）
+
+消息中心入口 + 少量高频工具（鉴别 / AI估价 / 闲置换钱），下方待处理预览  
+https://youyouzhucc.github.io/tab4-redesign-demo/explore.html?v=1
 
 ## 本地预览
 
@@ -12,4 +18,5 @@ https://youyouzhucc.github.io/tab4-redesign-demo/?v=5
 python3 -m http.server 8766
 ```
 
-打开 http://127.0.0.1:8766/
+- 好物：http://127.0.0.1:8766/
+- 消息工具：http://127.0.0.1:8766/explore.html

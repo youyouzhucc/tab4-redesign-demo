@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <title>消息 · 工具</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="explore.css?v=1" />
+</head>
+<body>
+  <section class="phone" id="app" aria-label="消息与工具">
+    <header class="page-head">
+      <h1 class="heiti">消息</h1>
+      <p class="page-sub">通知承接 + 高频工具，少而精</p>
+    </header>
+
+    <main class="scroll">
+      <ul class="entry-list">
+        <li>
+          <button type="button" class="entry-card" id="openMessages" data-entry="messages">
+            <div class="entry-text">
+              <strong class="heiti">消息中心</strong>
+              <em>交易查验 · 降价提醒 · 物流进度</em>
+            </div>
+            <div class="entry-side">
+              <i class="entry-badge">5</i>
+              <span class="chev">›</span>
+            </div>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="entry-card" data-tool="auth">
+            <div class="entry-text">
+              <strong class="heiti">鉴别服务</strong>
+              <em>累计 15.8 亿+ · 你有 1 次免费鉴别将过期</em>
+            </div>
+            <div class="entry-side">
+              <span class="entry-tag">免费</span>
+              <span class="chev">›</span>
+            </div>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="entry-card" data-tool="price">
+            <div class="entry-text">
+              <strong class="heiti">AI估价</strong>
+              <em>拍图估闲置 · 看看还能卖多少</em>
+            </div>
+            <div class="entry-side">
+              <span class="chev">›</span>
+            </div>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="entry-card" data-entry="sell">
+            <div class="entry-text">
+              <strong class="heiti">闲置换钱</strong>
+              <em>一键寄卖 · 鉴别通过后打款</em>
+            </div>
+            <div class="entry-side">
+              <i class="entry-dot" aria-hidden="true"></i>
+              <span class="chev">›</span>
+            </div>
+          </button>
+        </li>
+      </ul>
+
+      <section class="preview" aria-label="最近消息预览">
+        <div class="preview-head">
+          <h2 class="heiti">最近待处理</h2>
+          <button type="button" class="text-link" id="openMessages2">全部</button>
+        </div>
+        <ul class="preview-list">
+          <li>
+            <span class="preview-ico deal">交</span>
+            <div>
+              <strong>交易通知</strong>
+              <p>订单查验中，预计今日出结果</p>
+            </div>
+            <time>刚刚</time>
+          </li>
+          <li>
+            <span class="preview-ico price">降</span>
+            <div>
+              <strong>限时降价</strong>
+              <p>你关注的 AJ1 Low 已降 ¥87</p>
+            </div>
+            <time>10小时前</time>
+          </li>
+          <li>
+            <span class="preview-ico help">助</span>
+            <div>
+              <strong>95分小助手</strong>
+              <p>鉴别报告已出，可一键挂售</p>
+            </div>
+            <time>昨天</time>
+          </li>
+        </ul>
+      </section>
+
+      <p class="hint">对比「好物」方案：本页偏回访触达与工具入口，不做资产清单。<a href="./index.html?v=6">查看好物方案</a></p>
+    </main>
+
+    <!-- 消息中心二级页 -->
+    <div class="subpage" id="msgPage" hidden>
+      <header class="sub-head">
+        <button type="button" class="back-btn" id="msgBack" aria-label="返回">‹</button>
+        <h2 class="heiti">消息中心</h2>
+        <span class="sub-space"></span>
+      </header>
+      <div class="sub-scroll">
+        <div class="push-banner">
+          <div>
+            <strong>开启通知</strong>
+            <p>不错过查验、降价与物流</p>
+          </div>
+          <button type="button" class="push-cta">立即开启</button>
+        </div>
+        <ul class="msg-cats">
+          <li>
+            <span class="msg-ico official">95</span>
+            <div class="msg-body">
+              <div class="msg-top"><strong>官方通知</strong><time>05-06</time></div>
+              <p>业务仓库调整说明，点击查看详情</p>
+            </div>
+          </li>
+          <li>
+            <span class="msg-ico deal">宣</span>
+            <i class="msg-badge">5</i>
+            <div class="msg-body">
+              <div class="msg-top"><strong>交易通知</strong><time>今天</time></div>
+              <p>你的订单正在平台查验中…</p>
+            </div>
+          </li>
+          <li>
+            <span class="msg-ico sale">售</span>
+            <div class="msg-body">
+              <div class="msg-top"><strong>卖家公告</strong><time>09-24</time></div>
+              <p>平台体验升级，集市成色规范更新</p>
+            </div>
+          </li>
+          <li>
+            <span class="msg-ico bot">助</span>
+            <i class="msg-badge">3</i>
+            <div class="msg-body">
+              <div class="msg-top"><strong>95分小助手</strong><time>22小时前</time></div>
+              <p>你看过的 Fuji 相机有新成交参考</p>
+            </div>
+          </li>
+          <li>
+            <span class="msg-ico chat">互</span>
+            <div class="msg-body">
+              <div class="msg-top"><strong>互动消息</strong><time>05-01</time></div>
+              <p>有送货到深圳吗？</p>
+            </div>
+          </li>
+          <li>
+            <span class="msg-ico drop">¥</span>
+            <div class="msg-body">
+              <div class="msg-top"><strong>限时降价</strong><time>10小时前</time></div>
+              <p>你关注的商品，卖家限时降价 10 元</p>
+            </div>
+          </li>
+          <li>
+            <span class="msg-ico cs">服</span>
+            <div class="msg-body">
+              <div class="msg-top"><strong>95分客服</strong><time>06-15</time></div>
+              <p>点击下方开始咨询</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sheet" id="toolSheet" hidden>
+      <button class="sheet-backdrop" type="button" id="sheetClose" aria-label="关闭"></button>
+      <div class="sheet-panel" role="dialog" aria-modal="true">
+        <div class="sheet-handle" aria-hidden="true"></div>
+        <h3 class="heiti" id="sheetTitle">工具</h3>
+        <p class="sheet-desc" id="sheetDesc"></p>
+        <div class="sheet-steps" id="sheetSteps"></div>
+        <button class="sheet-cta" type="button" id="sheetCta">开始</button>
+      </div>
+    </div>
+
+    <nav class="tabbar" aria-label="底部导航">
+      <button type="button" class="tab"><span class="tab-ico">袋</span><span>95分</span></button>
+      <button type="button" class="tab"><span class="tab-ico">+</span><span>闲置换钱</span></button>
+      <button type="button" class="tab on" aria-label="消息，有未读">
+        <span class="tab-ico">讯</span><span>消息</span><i class="tab-dot"></i>
+      </button>
+      <button type="button" class="tab"><span class="tab-ico">我</span><span>我的</span></button>
+    </nav>
+  </section>
+
+  <script src="explore.js?v=1"></script>
+</body>
+</html>
