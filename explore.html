@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="explore.css?v=5" />
+  <link rel="stylesheet" href="explore.css?v=6" />
 </head>
 <body>
   <section class="phone" id="app" aria-label="消息与工具">
@@ -37,28 +37,34 @@
           </div>
           <ul class="preview-list">
             <li>
-              <span class="preview-ico deal">交</span>
-              <div>
-                <strong>交易通知</strong>
-                <p>订单查验中，预计今日出结果</p>
-              </div>
-              <time>刚刚</time>
+              <button type="button" class="row-link" id="openMessages3">
+                <span class="preview-ico deal">交</span>
+                <div>
+                  <strong>交易通知</strong>
+                  <p>订单查验中，预计今日出结果</p>
+                </div>
+                <time>刚刚</time>
+              </button>
             </li>
             <li>
-              <span class="preview-ico price">降</span>
-              <div>
-                <strong>限时降价</strong>
-                <p>你关注的 AJ1 Low 已降 ¥87</p>
-              </div>
-              <time>10小时前</time>
+              <button type="button" class="row-link" data-entry="messages">
+                <span class="preview-ico price">降</span>
+                <div>
+                  <strong>限时降价</strong>
+                  <p>你关注的 AJ1 Low 已降 ¥87</p>
+                </div>
+                <time>10小时前</time>
+              </button>
             </li>
             <li>
-              <span class="preview-ico help">助</span>
-              <div>
-                <strong>95分小助手</strong>
-                <p>鉴别报告已出，可一键挂售</p>
-              </div>
-              <time>昨天</time>
+              <button type="button" class="row-link" data-entry="messages">
+                <span class="preview-ico help">助</span>
+                <div>
+                  <strong>95分小助手</strong>
+                  <p>鉴别报告已出，可一键挂售</p>
+                </div>
+                <time>昨天</time>
+              </button>
             </li>
           </ul>
         </div>
@@ -75,44 +81,73 @@
             <span class="chev">›</span>
           </div>
         </button>
-        <div class="panel-body auth-body">
-          <p class="auth-guide">选类目拍图，最快约 1 分钟出结果</p>
-          <div class="auth-cats" role="list">
-            <button type="button" class="auth-cat" data-tool="auth" role="listitem">
-              <i class="auth-cat-ico" aria-hidden="true">鞋</i>
-              <span>鞋靴</span>
-              <em>6.2亿+</em>
-            </button>
-            <button type="button" class="auth-cat" data-tool="auth" role="listitem">
-              <i class="auth-cat-ico" aria-hidden="true">包</i>
-              <span>箱包</span>
-              <em>3.1亿+</em>
-            </button>
-            <button type="button" class="auth-cat" data-tool="auth" role="listitem">
-              <i class="auth-cat-ico" aria-hidden="true">表</i>
-              <span>腕表</span>
-              <em>1.4亿+</em>
-            </button>
-            <button type="button" class="auth-cat" data-tool="auth" role="listitem">
-              <i class="auth-cat-ico" aria-hidden="true">玩</i>
-              <span>潮玩</span>
-              <em>9800万+</em>
-            </button>
-            <button type="button" class="auth-cat" data-tool="auth" role="listitem">
-              <i class="auth-cat-ico" aria-hidden="true">妆</i>
-              <span>美妆</span>
-              <em>7200万+</em>
-            </button>
-            <button type="button" class="auth-cat" data-tool="auth" role="listitem">
-              <i class="auth-cat-ico more" aria-hidden="true">···</i>
-              <span>更多</span>
-              <em>全类目</em>
-            </button>
+        <div class="panel-body">
+          <div class="preview-head">
+            <h2 class="heiti">热门类目</h2>
+            <button type="button" class="text-link" data-tool="auth">全部</button>
           </div>
-          <button type="button" class="auth-cta" data-tool="auth">
-            <strong>拍图鉴别</strong>
-            <span>超多类目 · 首单免费</span>
-          </button>
+          <ul class="preview-list">
+            <li>
+              <button type="button" class="row-link" data-tool="auth">
+                <span class="preview-ico">鞋</span>
+                <div>
+                  <strong>鞋靴</strong>
+                  <p>累计鉴别 6.2亿+ · 约 1 分钟出结果</p>
+                </div>
+                <span class="chev">›</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="row-link" data-tool="auth">
+                <span class="preview-ico">包</span>
+                <div>
+                  <strong>箱包</strong>
+                  <p>累计鉴别 3.1亿+ · 约 1 分钟出结果</p>
+                </div>
+                <span class="chev">›</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="row-link" data-tool="auth">
+                <span class="preview-ico">表</span>
+                <div>
+                  <strong>腕表</strong>
+                  <p>累计鉴别 1.4亿+ · 约 1 分钟出结果</p>
+                </div>
+                <span class="chev">›</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="row-link" data-tool="auth">
+                <span class="preview-ico">玩</span>
+                <div>
+                  <strong>潮玩</strong>
+                  <p>累计鉴别 9800万+ · 约 1 分钟出结果</p>
+                </div>
+                <span class="chev">›</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="row-link" data-tool="auth">
+                <span class="preview-ico">妆</span>
+                <div>
+                  <strong>美妆</strong>
+                  <p>累计鉴别 7200万+ · 约 1 分钟出结果</p>
+                </div>
+                <span class="chev">›</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="row-link" data-tool="auth">
+                <span class="preview-ico">···</span>
+                <div>
+                  <strong>更多类目</strong>
+                  <p>覆盖全类目 · 假一赔三</p>
+                </div>
+                <span class="chev">›</span>
+              </button>
+            </li>
+          </ul>
         </div>
       </section>
     </main>
@@ -209,6 +244,6 @@
     </nav>
   </section>
 
-  <script src="explore.js?v=5"></script>
+  <script src="explore.js?v=6"></script>
 </body>
 </html>

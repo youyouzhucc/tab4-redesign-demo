@@ -41,9 +41,15 @@
 
   document.getElementById("openMessages")?.addEventListener("click", openMessages);
   document.getElementById("openMessages2")?.addEventListener("click", openMessages);
+  document.getElementById("openMessages3")?.addEventListener("click", openMessages);
   document.getElementById("msgBack")?.addEventListener("click", closeMessages);
 
   document.getElementById("app")?.addEventListener("click", (e) => {
+    const entryBtn = e.target.closest("[data-entry='messages']");
+    if (entryBtn) {
+      openMessages();
+      return;
+    }
     const toolBtn = e.target.closest("[data-tool]");
     if (toolBtn) openTool(toolBtn.dataset.tool);
   });
