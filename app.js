@@ -17,7 +17,7 @@
   const MARKETS = {
     aj1low: {
       title: "Air Jordan 1 Low 绿白",
-      img: "assets/p-aj1low.png",
+      img: "assets/p-aj1low.jpg",
       hot: "HOT 328人想要 · 近7日 46人买过",
       retail: "¥1299",
       brand: "Jordan",
@@ -40,7 +40,7 @@
     },
     scarf: {
       title: "Acne Studios 窄版围巾",
-      img: "assets/p-scarf.png",
+      img: "assets/p-scarf.jpg",
       hot: "HOT 86人想要 · 近7日 12人买过",
       retail: "¥2100",
       brand: "Acne",
@@ -63,7 +63,7 @@
     },
     gshock: {
       title: "Casio G-Shock GA-2100",
-      img: "assets/p-gshock.png",
+      img: "assets/p-gshock.jpg",
       hot: "156人想要 · 近7日 23人买过",
       retail: "¥999",
       brand: "Casio",
@@ -86,7 +86,7 @@
     },
     aj1: {
       title: "AJ1 Retro High 黑白",
-      img: "assets/p-aj1.png",
+      img: "assets/p-aj1.jpg",
       hot: "HOT 545人想要 · 近7日 61人买过",
       retail: "¥1399",
       brand: "Jordan",
@@ -109,7 +109,7 @@
     },
     coach: {
       title: "Coach 托特包",
-      img: "assets/p-coach.png",
+      img: "assets/p-coach.jpg",
       hot: "HOT 212人想要 · 近7日 18人买过",
       retail: "¥3900",
       brand: "Coach",
@@ -132,7 +132,7 @@
     },
     nb550: {
       title: "New Balance 550",
-      img: "assets/p-nb550.png",
+      img: "assets/p-nb550.jpg",
       hot: "1.1万件成交 · 近7日 89人买过",
       retail: "¥899",
       brand: "NB",
@@ -155,7 +155,7 @@
     },
     samba: {
       title: "adidas Samba OG",
-      img: "assets/p-samba.png",
+      img: "assets/p-samba.jpg",
       hot: "96人想要 · 近7日成交走弱",
       retail: "¥899",
       brand: "adidas",
@@ -178,7 +178,7 @@
     },
     dunk: {
       title: "Nike Dunk Low 熊猫",
-      img: "assets/p-dunk.png",
+      img: "assets/p-dunk.jpg",
       hot: "HOT 890人想要 · 近7日 72人买过",
       retail: "¥799",
       brand: "Nike",
@@ -201,7 +201,7 @@
     },
     af1: {
       title: "Nike Air Force 1 LE 纯白",
-      img: "assets/p-af1.png",
+      img: "assets/p-af1.jpg",
       hot: "HOT 1.2万人想要",
       retail: "¥749",
       brand: "Nike",
@@ -224,7 +224,7 @@
     },
     hoodie: {
       title: "Essentials 基础卫衣",
-      img: "assets/p-hoodie.png",
+      img: "assets/p-hoodie.jpg",
       hot: "64人想要 · 仅一件在售",
       retail: "¥690",
       brand: "Fear of God",
