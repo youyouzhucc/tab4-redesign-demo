@@ -140,17 +140,17 @@ button {
   flex-direction: column;
 }
 
-/* 顶部工具区 */
+/* 顶部工具区：与下方清单模块留出间隔 */
 .top-stack {
   display: flex;
   flex-direction: column;
   gap: 0;
   margin: 0;
-  padding: 0;
+  padding: 0 0 8px;
   background: #f3f3f3;
 }
 
-/* 鉴别信息通栏（左右拉通） */
+/* 鉴别信息通栏（左右拉通，独立模块） */
 .auth-strip {
   width: 100%;
   display: flex;
@@ -160,7 +160,6 @@ button {
   border-radius: 0;
   background: #fff;
   border: none;
-  border-bottom: 1px solid #efefef;
   text-align: left;
   cursor: pointer;
   color: inherit;
