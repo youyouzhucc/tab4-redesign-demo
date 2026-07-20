@@ -93,10 +93,10 @@ button {
   min-height: 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 0 12px 16px;
+  padding: 0 0 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .entry-badge {
@@ -113,36 +113,43 @@ button {
   place-items: center;
 }
 
+.entry-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: #111;
+  border-radius: 6px;
+  padding: 3px 6px;
+  line-height: 1.2;
+}
+
 .chev {
   font-size: 18px;
   color: #ccc;
   line-height: 1;
 }
 
-/* 消息中心 + 最近待处理 合并卡片 */
-.msg-block {
+/* 通栏面板：消息中心 / 鉴别服务 同一套样式 */
+.panel {
   background: var(--paper);
-  border-radius: 14px;
-  padding: 0 14px 4px;
-  overflow: hidden;
+  border-radius: 0;
 }
 
-.msg-block-head {
-  width: calc(100% + 28px);
-  margin: 0 -14px;
+.panel-head {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 14px 12px;
+  padding: 14px 16px;
   text-align: left;
-  border-bottom: 1px solid #f3f3f3;
+  border-bottom: 1px solid #f0f0f0;
 }
 
-.msg-block-head:active {
+.panel-head:active {
   background: #fafafa;
 }
 
-.msg-block-title {
+.panel-title {
   flex: 1;
   min-width: 0;
   display: flex;
@@ -150,33 +157,42 @@ button {
   gap: 4px;
 }
 
-.msg-block-title strong {
+.panel-title strong {
   font-size: 16px;
+  font-weight: 700;
   line-height: 1.25;
+  color: #111;
 }
 
-.msg-block-title em {
+.panel-title em {
   font-style: normal;
   font-size: 12px;
   color: var(--muted);
   line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.msg-block-side {
+.panel-side {
   display: flex;
   align-items: center;
   gap: 6px;
   flex-shrink: 0;
 }
 
+.panel-body {
+  padding: 0 16px 4px;
+}
+
+.panel-body.auth-body {
+  padding: 12px 16px 16px;
+}
+
 .preview-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 4px;
-}
-
-.preview-head.in-block {
   margin: 12px 0 0;
 }
 
@@ -184,70 +200,8 @@ button {
   font-size: 14px;
 }
 
-/* 放大鉴别模块 + 类目 */
-.auth-panel {
-  background: var(--paper);
-  border-radius: 14px;
-  padding: 16px 14px 16px;
-}
-
-.auth-panel-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.auth-panel-title {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  min-width: 0;
-}
-
-.auth-panel-title strong {
-  font-size: 18px;
-  font-weight: 700;
-  color: #111;
-  line-height: 1.2;
-}
-
-.auth-panel-title em {
-  font-style: normal;
-  font-size: 11px;
-  color: var(--muted);
-  line-height: 1.3;
-}
-
-.auth-count {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 2px;
-  padding: 0;
-  border: none;
-  background: transparent;
-  text-align: right;
-  flex: 0 0 auto;
-}
-
-.auth-count b {
-  font-size: 18px;
-  font-weight: 700;
-  font-family: var(--mono);
-  color: #111;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-}
-
-.auth-count span {
-  font-size: 10px;
-  color: var(--muted);
-  font-weight: 500;
-}
-
 .auth-guide {
-  margin: 12px 0 12px;
+  margin: 0 0 12px;
   font-size: 12px;
   color: var(--ink-soft);
   line-height: 1.4;
