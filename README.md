@@ -7,12 +7,12 @@
 想要 / 还价 / 持有 + 通栏鉴别入口  
 https://youyouzhucc.github.io/tab4-redesign-demo/?v=9
 
-## 方案：消息 + 工具（类似得物探索）
+## 方案：服务（消息中心 + 鉴别）
 
-消息中心与待处理合并，下方放大鉴别（类目 + 拍图）  
+消息中心与待处理合并，下方鉴别类目入口  
 
 - 本机：http://127.0.0.1:8766/explore.html  
-- Pages：https://youyouzhucc.github.io/tab4-redesign-demo/explore.html?v=5
+- Pages：https://youyouzhucc.github.io/tab4-redesign-demo/explore.html?v=9
 
 ## 本地预览
 
