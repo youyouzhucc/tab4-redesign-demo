@@ -6,12 +6,6 @@
       steps: ["选择类目", "按指引拍摄细节", "查看鉴别结论与建议"],
       cta: "开始拍图鉴别",
     },
-    price: {
-      title: "AI估价",
-      desc: "结合成色与近期成交，给出闲置参考价，辅助寄卖或还价决策。",
-      steps: ["拍摄或选择商品", "确认成色", "查看估价区间"],
-      cta: "开始估价",
-    },
   };
 
   const msgPage = document.getElementById("msgPage");
@@ -51,20 +45,7 @@
 
   document.getElementById("app")?.addEventListener("click", (e) => {
     const toolBtn = e.target.closest("[data-tool]");
-    if (toolBtn) {
-      openTool(toolBtn.dataset.tool);
-      return;
-    }
-    const sell = e.target.closest('[data-entry="sell"]');
-    if (sell) {
-      sheetTitle.textContent = "闲置换钱";
-      sheetDesc.textContent = "填写信息寄出，平台鉴别通过后打款。适合手里闲置快速变现。";
-      sheetSteps.innerHTML = ["选择商品成色", "预约寄件或上门", "鉴别通过后收款"]
-        .map((s, i) => `<div class="sheet-step"><i>${i + 1}</i><span>${s}</span></div>`)
-        .join("");
-      sheetCta.textContent = "去寄卖";
-      sheet.hidden = false;
-    }
+    if (toolBtn) openTool(toolBtn.dataset.tool);
   });
 
   document.getElementById("sheetClose")?.addEventListener("click", closeSheet);

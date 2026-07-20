@@ -9,8 +9,10 @@ https://youyouzhucc.github.io/tab4-redesign-demo/?v=6
 
 ## 方案：消息 + 工具（类似得物探索）
 
-消息中心入口 + 少量高频工具（鉴别 / AI估价 / 闲置换钱），下方待处理预览  
-https://youyouzhucc.github.io/tab4-redesign-demo/explore.html?v=1
+消息中心入口 + 鉴别服务，下方待处理预览  
+
+- 本机：http://127.0.0.1:8766/explore.html  
+- Pages：https://youyouzhucc.github.io/tab4-redesign-demo/explore.html?v=2
 
 ## 本地预览
 
