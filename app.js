@@ -275,36 +275,7 @@
     });
   }
 
-  function switchVaultPane(pane) {
-    const scope = document.getElementById("scheme-b");
-    if (!scope || !pane) return;
-    scope.querySelectorAll("#vaultTabs [data-pane]").forEach((t) => {
-      const on = t.dataset.pane === pane;
-      t.classList.toggle("active", on);
-      t.setAttribute("aria-selected", on ? "true" : "false");
-    });
-    scope.querySelectorAll("#tbStats [data-pane]").forEach((t) => {
-      t.classList.toggle("on", t.dataset.pane === pane);
-    });
-    scope.querySelectorAll(".pane[data-pane]").forEach((p) => {
-      const on = p.dataset.pane === pane;
-      p.hidden = !on;
-      p.classList.toggle("active", on);
-    });
-  }
-
-  document.getElementById("vaultTabs")?.addEventListener("click", (e) => {
-    const tab = e.target.closest("[data-pane]");
-    if (!tab) return;
-    switchVaultPane(tab.dataset.pane);
-  });
-
-  document.getElementById("tbStats")?.addEventListener("click", (e) => {
-    const tab = e.target.closest("[data-pane]");
-    if (!tab) return;
-    switchVaultPane(tab.dataset.pane);
-  });
-
+  bindSummaryTabs("vaultTabs");
   bindSummaryTabs("pfTabs");
 
   // 三方案切换

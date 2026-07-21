@@ -300,12 +300,12 @@
   padding: 0 16px 10px;
 }
 
-/* 交易台 · 想要 / 我有 数据统计 */
+/* 交易台 · 想要 / 我有 数据展示（非切换） */
 .tb-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  padding: 12px 16px;
+  gap: 0;
+  padding: 14px 16px 16px;
   background: #fff;
   margin-bottom: 8px;
 }
@@ -313,21 +313,13 @@
 .tb-stat {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  padding: 12px;
-  border-radius: 12px;
-  background: #f6f6f6;
-  border: 1.5px solid transparent;
-  text-align: left;
-  font-family: inherit;
-  color: inherit;
-  min-height: 96px;
+  gap: 6px;
+  padding: 0 12px;
+  min-width: 0;
 }
 
-.tb-stat.on {
-  background: #fff;
-  border-color: #111;
+.tb-stat + .tb-stat {
+  border-left: 1px solid #ebebeb;
 }
 
 .tb-stat-kicker {
@@ -336,16 +328,12 @@
   color: #888;
 }
 
-.tb-stat.on .tb-stat-kicker {
-  color: #111;
-}
-
 .tb-stat-value {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
   font-family: var(--mono, "JetBrains Mono", monospace);
   letter-spacing: -0.03em;
-  line-height: 1.1;
+  line-height: 1.05;
   color: #111;
 }
 
@@ -355,14 +343,9 @@
 }
 
 .tb-stat-change {
-  margin-top: 2px;
   font-size: 12px;
   font-weight: 600;
   color: #666;
-}
-
-.tb-stat-change.up {
-  color: #111;
 }
 
 #scheme-b .list-module {
