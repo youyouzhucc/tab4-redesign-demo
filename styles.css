@@ -385,7 +385,7 @@ button {
 
 .ghost-btn.light {
   background: rgba(255, 255, 255, 0.2);
-  color: #eafff4;
+  color: #fff;
 }
 
 .chips {
@@ -475,8 +475,8 @@ button {
   background: var(--green);
 }
 
-.msg-thumb.deal { background: linear-gradient(145deg, #0a6b4a, #085438); }
-.msg-thumb.sys { background: linear-gradient(145deg, #2c3a34, #1a2420); }
+.msg-thumb.deal { background: #111; }
+.msg-thumb.sys { background: #444; }
 .msg-thumb.product {
   background: var(--img);
 }
@@ -1184,16 +1184,16 @@ button {
 }
 
 .tag.down {
-  color: #e24b4b;
-  border-color: #f5c6c6;
-  background: #fff7f7;
+  color: #333;
+  border-color: #ddd;
+  background: #f5f5f5;
 }
 
 .tag.hot,
 .tag.ok {
-  color: var(--green);
-  border-color: rgba(10, 107, 74, 0.25);
-  background: rgba(10, 107, 74, 0.06);
+  color: #111;
+  border-color: #ddd;
+  background: #f5f5f5;
 }
 
 .link-btn {
@@ -1401,7 +1401,7 @@ button {
   padding: 0 4px;
   margin-right: 4px;
   border-radius: 2px;
-  background: #ff4d4f;
+  background: #111;
   color: #fff;
   font-size: 10px;
 }
@@ -1518,9 +1518,9 @@ button {
   border-radius: 8px;
 }
 
-.chart .c-ss { stroke: #0a6b4a; }
-.chart .c-a { stroke: #4b7bec; }
-.chart .c-b { stroke: #a55eea; }
+.chart .c-ss { stroke: #111; }
+.chart .c-a { stroke: #666; }
+.chart .c-b { stroke: #aaa; }
 
 .chart-legend {
   display: flex;
@@ -1538,9 +1538,9 @@ button {
   margin-right: 4px;
 }
 
-.chart-legend .dot.ss { background: #0a6b4a; }
-.chart-legend .dot.a { background: #4b7bec; }
-.chart-legend .dot.b { background: #a55eea; }
+.chart-legend .dot.ss { background: #111; }
+.chart-legend .dot.a { background: #666; }
+.chart-legend .dot.b { background: #aaa; }
 
 .deal-list {
   list-style: none;
@@ -1812,7 +1812,7 @@ button {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #e5484d;
+  background: #111;
   border: 1.5px solid #fff;
   font-style: normal;
 }
@@ -1828,9 +1828,9 @@ button {
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(10, 107, 74, 0.4); }
-  70% { box-shadow: 0 0 0 8px rgba(10, 107, 74, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(10, 107, 74, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.25); }
+  70% { box-shadow: 0 0 0 8px rgba(0, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
 }
 
 @keyframes badgePop {

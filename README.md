@@ -8,7 +8,7 @@ https://youyouzhucc.github.io/tab4-redesign-demo/
 
 | Tab | 方案 | 说明 | 直达 |
 | --- | --- | --- | --- |
-| 货值 | A | 闲置值多少钱 / 可回血 / 待办提醒 | [index.html#a](https://youyouzhucc.github.io/tab4-redesign-demo/#a) |
+| 货盘 | A | 闲置值多少钱 / 可回血 / 挂售提醒 | [index.html#a](https://youyouzhucc.github.io/tab4-redesign-demo/#a) |
 | 交易台 | B | 想要 / 还价 / 持有 | [index.html#b](https://youyouzhucc.github.io/tab4-redesign-demo/#b) |
 | 服务台 | C | 消息待办 + 鉴别 | [index.html#c](https://youyouzhucc.github.io/tab4-redesign-demo/#c) |
 

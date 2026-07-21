@@ -40,8 +40,8 @@
   font-weight: 600;
 }
 
-.pf-board-gain.up { color: #0a7a3e; }
-.pf-board-gain.down { color: #c23b3b; }
+.pf-board-gain.up { color: #111; }
+.pf-board-gain.down { color: #666; }
 
 .pf-board-meta {
   display: flex;
@@ -106,8 +106,8 @@
   font-family: var(--mono, "JetBrains Mono", monospace);
 }
 
-.pf-gain.up { color: #0a7a3e; }
-.pf-gain.down { color: #c23b3b; }
+.pf-gain.up { color: #111; }
+.pf-gain.down { color: #666; }
 
 .pf-cost {
   font-size: 11px;
