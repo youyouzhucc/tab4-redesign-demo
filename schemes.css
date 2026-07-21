@@ -374,6 +374,30 @@
   flex-shrink: 0;
 }
 
+/* 交易台 Tab：只做切换，不再重复件数大数字 */
+#scheme-b .summary-bar.text-tabs {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+#scheme-b .summary-bar.text-tabs .summary-cell {
+  padding: 11px 4px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#scheme-b .summary-bar.text-tabs .summary-label {
+  margin-bottom: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+}
+
+#scheme-b .summary-bar.text-tabs .summary-cell.active .summary-label {
+  color: #111;
+  font-weight: 700;
+}
+
 #scheme-b .summary-cell .summary-sub {
   color: #888;
 }
