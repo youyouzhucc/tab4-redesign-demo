@@ -276,31 +276,31 @@
   }
 
   bindSummaryTabs("vaultTabs");
-  bindSummaryTabs("pfTabs");
 
-  // 三方案切换
+  // 两方案：交易台 + 服务台；旧货盘 #a 并入交易台
   const schemeMeta = {
-    a: { title: "好物", tab: "好物", label: "货盘" },
+    a: { title: "好物", tab: "好物", label: "交易台", alias: "b" },
     b: { title: "好物", tab: "好物", label: "交易台" },
     c: { title: "服务", tab: "服务", label: "服务台" },
   };
 
   function switchScheme(key) {
-    if (!schemeMeta[key]) return;
+    const meta = schemeMeta[key];
+    if (!meta) return;
+    const viewKey = meta.alias || key;
     document.querySelectorAll(".scheme-view").forEach((v) => {
-      v.classList.toggle("on", v.dataset.scheme === key);
+      v.classList.toggle("on", v.dataset.scheme === viewKey);
     });
     document.querySelectorAll("#schemeSwitch button").forEach((b) => {
-      b.classList.toggle("on", b.dataset.scheme === key);
+      b.classList.toggle("on", b.dataset.scheme === viewKey);
     });
-    const meta = schemeMeta[key];
     const title = document.getElementById("schemeTitle");
     const tabLabel = document.getElementById("mainTabLabel");
     const mainTab = document.getElementById("mainTab");
     if (title) title.textContent = meta.title;
     if (tabLabel) tabLabel.textContent = meta.tab;
     if (mainTab) mainTab.setAttribute("aria-label", `${meta.tab}`);
-    history.replaceState(null, "", `#${key}`);
+    history.replaceState(null, "", `#${viewKey}`);
   }
 
   document.getElementById("schemeSwitch")?.addEventListener("click", (e) => {

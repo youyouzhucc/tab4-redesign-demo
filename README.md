@@ -1,16 +1,15 @@
-# 95分 · 第四 Tab Demo（三方案 Tab 切换）
+# 95分 · 第四 Tab Demo（交易台 / 服务台）
 
-同一「好物」视觉体系内，顶部 Tab 切换三个方向。
+同一「好物」视觉体系内，顶部切换两个方向。
 
 ## 打开 Demo
 
 https://youyouzhucc.github.io/tab4-redesign-demo/
 
-| Tab | 方案 | 说明 | 直达 |
-| --- | --- | --- | --- |
-| 货盘 | A | 闲置值多少钱 / 可回血 / 挂售提醒 | [index.html#a](https://youyouzhucc.github.io/tab4-redesign-demo/#a) |
-| 交易台 | B | 想要 / 还价 / 持有 | [index.html#b](https://youyouzhucc.github.io/tab4-redesign-demo/#b) |
-| 服务台 | C | 消息待办 + 鉴别 | [index.html#c](https://youyouzhucc.github.io/tab4-redesign-demo/#c) |
+| Tab | 说明 | 直达 |
+| --- | --- | --- |
+| 交易台 | 想要/我有总值 + 想要/还价/我有清单 | [index.html#b](https://youyouzhucc.github.io/tab4-redesign-demo/#b) |
+| 服务台 | 消息待办 + 鉴别 | [index.html#c](https://youyouzhucc.github.io/tab4-redesign-demo/#c) |
 
 ## 本地
 
