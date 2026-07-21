@@ -1,0 +1,258 @@
+/* 三方案切换 · 统一好物视觉 */
+.scheme-switch {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 8px 0 0;
+  background: #ebebeb;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.scheme-switch button {
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  min-height: 34px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  font-family: inherit;
+}
+
+.scheme-switch button.on {
+  background: #fff;
+  color: #111;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.scheme-view {
+  display: none;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.scheme-view.on {
+  display: flex;
+}
+
+.scheme-view > .list-module,
+.scheme-view > .svc-scroll {
+  flex: 1;
+  min-height: 0;
+}
+
+/* 服务台：复用好物通栏 + 灰间隔 */
+.svc-scroll {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
+.svc-block {
+  background: #fff;
+}
+
+.svc-block .auth-strip {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.svc-section-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px 0;
+}
+
+.svc-section-label h2 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.svc-section-label .text-link {
+  font-size: 12px;
+  color: #888;
+  font-weight: 600;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+.svc-rows {
+  list-style: none;
+  padding: 0 16px 4px;
+  margin: 0;
+}
+
+.svc-rows li {
+  border-top: 1px solid #f3f3f3;
+}
+
+.svc-rows li:first-child {
+  border-top: none;
+}
+
+.svc-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 0;
+  text-align: left;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  color: inherit;
+}
+
+.svc-row:active {
+  opacity: 0.75;
+}
+
+.svc-ico {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  background: #f4f4f4;
+  color: #333;
+}
+
+.svc-ico.deal {
+  background: #111;
+  color: #fff;
+}
+
+.svc-row strong {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.svc-row p {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.svc-row time,
+.svc-row .chev {
+  font-size: 11px;
+  color: #bbb;
+}
+
+.svc-row .chev {
+  font-size: 18px;
+}
+
+.svc-badge {
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #e5484d;
+  color: #fff;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+/* 资产盘板 */
+.pf-board {
+  background: #fff;
+  padding: 16px;
+}
+
+.pf-board-label {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.pf-board-value {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--mono, "JetBrains Mono", monospace);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #111;
+}
+
+.pf-board-value .yen {
+  font-size: 18px;
+  margin-right: 2px;
+}
+
+.pf-board-gain {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pf-board-gain.up { color: #0a7a3e; }
+.pf-board-gain.down { color: #c23b3b; }
+
+.pf-board-meta {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #f2f2f2;
+}
+
+.pf-board-meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pf-board-meta span {
+  font-size: 11px;
+  color: #999;
+}
+
+.pf-board-meta strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: #222;
+}
+
+.pf-gain {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--mono, "JetBrains Mono", monospace);
+}
+
+.pf-gain.up { color: #0a7a3e; }
+.pf-gain.down { color: #c23b3b; }
+
+.pf-cost {
+  font-size: 11px;
+  color: #999;
+}
+
+.phone > .scheme-switch-wrap {
+  flex-shrink: 0;
+  background: #f3f3f3;
+  padding: 0 16px 10px;
+}
+
+#scheme-a .top-stack,
+#scheme-b .top-stack {
+  padding-bottom: 8px;
+}

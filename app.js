@@ -6,6 +6,12 @@
       steps: ["选择品类与品牌", "按指引拍摄细节图", "获取鉴别结论与建议"],
       cta: "开始鉴别",
     },
+    messages: {
+      title: "消息中心",
+      desc: "查看交易查验、降价提醒与物流进度，优先处理待办。",
+      steps: ["查看未读通知", "处理待办事项", "按需开启推送"],
+      cta: "进入消息中心",
+    },
     price: {
       title: "AI估价",
       desc: "结合成色、瑕疵与近期成交，给出市场参考价，辅助买卖决策。",
@@ -247,29 +253,64 @@
     },
   };
 
-  const vaultTabs = document.getElementById("vaultTabs");
-
-  function switchVaultPane(pane) {
-    if (!pane || !vaultTabs) return;
-    const tab = vaultTabs.querySelector(`.summary-cell[data-pane="${pane}"]`);
-    if (!tab) return;
-    vaultTabs.querySelectorAll(".summary-cell").forEach((t) => {
-      const on = t === tab;
-      t.classList.toggle("active", on);
-      t.setAttribute("aria-selected", on ? "true" : "false");
-    });
-    document.querySelectorAll("#demo-vault .pane").forEach((p) => {
-      const on = p.dataset.pane === pane;
-      p.hidden = !on;
-      p.classList.toggle("active", on);
+  function bindSummaryTabs(rootId) {
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    root.addEventListener("click", (e) => {
+      const tab = e.target.closest(".summary-cell[data-pane]");
+      if (!tab || tab.disabled) return;
+      const pane = tab.dataset.pane;
+      root.querySelectorAll(".summary-cell").forEach((t) => {
+        const on = t === tab;
+        t.classList.toggle("active", on);
+        t.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      const scope = root.closest(".scheme-view") || document.getElementById("demo-vault");
+      scope.querySelectorAll(".pane[data-pane]").forEach((p) => {
+        const on = p.dataset.pane === pane;
+        p.hidden = !on;
+        p.classList.toggle("active", on);
+      });
     });
   }
 
-  vaultTabs?.addEventListener("click", (e) => {
-    const tab = e.target.closest(".summary-cell[data-pane]");
-    if (!tab) return;
-    switchVaultPane(tab.dataset.pane);
+  bindSummaryTabs("vaultTabs");
+  bindSummaryTabs("pfTabs");
+
+  // 三方案切换
+  const schemeMeta = {
+    a: { title: "好物", tab: "好物", label: "资产盘" },
+    b: { title: "好物", tab: "好物", label: "交易台" },
+    c: { title: "服务", tab: "服务", label: "服务台" },
+  };
+
+  function switchScheme(key) {
+    if (!schemeMeta[key]) return;
+    document.querySelectorAll(".scheme-view").forEach((v) => {
+      v.classList.toggle("on", v.dataset.scheme === key);
+    });
+    document.querySelectorAll("#schemeSwitch button").forEach((b) => {
+      b.classList.toggle("on", b.dataset.scheme === key);
+    });
+    const meta = schemeMeta[key];
+    const title = document.getElementById("schemeTitle");
+    const tabLabel = document.getElementById("mainTabLabel");
+    const mainTab = document.getElementById("mainTab");
+    if (title) title.textContent = meta.title;
+    if (tabLabel) tabLabel.textContent = meta.tab;
+    if (mainTab) mainTab.setAttribute("aria-label", `${meta.tab}`);
+    history.replaceState(null, "", `#${key}`);
+  }
+
+  document.getElementById("schemeSwitch")?.addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-scheme]");
+    if (!btn) return;
+    switchScheme(btn.dataset.scheme);
   });
+
+  const hash = (location.hash || "").replace("#", "");
+  if (schemeMeta[hash]) switchScheme(hash);
+  else switchScheme("b");
 
   // Tool sheet
   const sheet = document.getElementById("toolSheet");
@@ -339,6 +380,12 @@
     if (trendBtn) {
       e.preventDefault();
       openMarket(trendBtn.dataset.market);
+      return;
+    }
+
+    const msgBtn = e.target.closest("[data-entry='messages'], #openMessages, #openMessages2");
+    if (msgBtn) {
+      openTool("messages");
       return;
     }
 

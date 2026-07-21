@@ -107,6 +107,7 @@ button {
 .phone > .status-bar,
 .phone > .nav,
 .phone > .page-head,
+.phone > .scheme-switch-wrap,
 .phone > .top-stack,
 .phone > .list-module,
 .phone > .zone,
@@ -114,6 +115,11 @@ button {
 .phone > .chips,
 .phone > .footer {
   flex-shrink: 0;
+}
+
+.phone > .scheme-view.on {
+  flex: 1;
+  min-height: 0;
 }
 
 /* 与消息方案一致的左侧大标题 */
