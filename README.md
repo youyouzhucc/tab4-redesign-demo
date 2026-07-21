@@ -1,18 +1,18 @@
-# 95分 · 第四 Tab Demo
+# 95分 · 第四 Tab Demo（三方案讨论）
 
-两个方向，手机打开即全屏：
+结合 StockX Portfolio 等竞品，拆成 3 个可点方向。
 
-## 方案：好物（资产清单）
+## 讨论入口（推荐先开这个）
 
-想要 / 还价 / 持有 + 通栏鉴别入口  
-https://youyouzhucc.github.io/tab4-redesign-demo/?v=9
+https://youyouzhucc.github.io/tab4-redesign-demo/compare.html
 
-## 方案：服务（消息中心 + 鉴别）
+## 三方案
 
-消息中心与待处理合并，下方鉴别类目入口  
-
-- 本机：http://127.0.0.1:8766/explore.html  
-- Pages：https://youyouzhucc.github.io/tab4-redesign-demo/explore.html?v=9
+| 方案 | 方向 | 对标 | 链接 |
+| --- | --- | --- | --- |
+| A 资产盘 | 持有估值 / 涨跌 / 鉴别促挂售 | StockX Portfolio | [portfolio.html](https://youyouzhucc.github.io/tab4-redesign-demo/portfolio.html) |
+| B 交易台 | 想要 / 还价 / 持有待办 | 自研组合 | [index.html](https://youyouzhucc.github.io/tab4-redesign-demo/) |
+| C 服务台 | 消息待办 + 鉴别类目 | 得物服务 / Inbox | [explore.html](https://youyouzhucc.github.io/tab4-redesign-demo/explore.html) |
 
 ## 本地预览
 
@@ -20,5 +20,7 @@ https://youyouzhucc.github.io/tab4-redesign-demo/?v=9
 python3 -m http.server 8766
 ```
 
-- 好物：http://127.0.0.1:8766/
-- 消息工具：http://127.0.0.1:8766/explore.html
+- 对比页：http://127.0.0.1:8766/compare.html
+- A：http://127.0.0.1:8766/portfolio.html
+- B：http://127.0.0.1:8766/
+- C：http://127.0.0.1:8766/explore.html
