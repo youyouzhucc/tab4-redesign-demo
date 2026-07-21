@@ -669,6 +669,24 @@ button {
   letter-spacing: 0.02em;
 }
 
+.summary-badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 14px;
+  height: 14px;
+  padding: 0 4px;
+  margin-left: 3px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1;
+  vertical-align: 1px;
+}
+}
+
 .summary-value {
   display: block;
   font-family: var(--mono);
