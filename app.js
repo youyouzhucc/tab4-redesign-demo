@@ -279,7 +279,7 @@
 
   // 三方案切换
   const schemeMeta = {
-    a: { title: "好物", tab: "好物", label: "货值" },
+    a: { title: "好物", tab: "好物", label: "货盘" },
     b: { title: "好物", tab: "好物", label: "交易台" },
     c: { title: "服务", tab: "服务", label: "服务台" },
   };
