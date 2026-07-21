@@ -42,6 +42,23 @@
 .scheme-view > .svc-scroll {
   flex: 1;
   min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.scheme-view > .list-module > .scroll,
+.scheme-view > .list-module > .vault-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scheme-view > .tb-stats,
+.scheme-view > .pf-board,
+.scheme-view > .top-stack {
+  flex-shrink: 0;
 }
 
 /* 服务台：复用好物通栏 + 灰间隔 */
@@ -308,6 +325,7 @@
   padding: 14px 16px 16px;
   background: #fff;
   margin-bottom: 8px;
+  flex-shrink: 0;
 }
 
 .tb-stat {
@@ -352,6 +370,18 @@
   margin-top: 0;
 }
 
+#scheme-b .summary-bar {
+  flex-shrink: 0;
+}
+
 #scheme-b .summary-cell .summary-sub {
   color: #888;
+}
+
+#scheme-b .vault-scroll {
+  padding-bottom: 24px;
+}
+
+#scheme-b .recommend {
+  padding-bottom: 28px;
 }
