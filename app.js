@@ -257,10 +257,11 @@
     const root = document.getElementById(rootId);
     if (!root) return;
     root.addEventListener("click", (e) => {
-      const tab = e.target.closest(".summary-cell[data-pane]");
-      if (!tab || tab.disabled) return;
+      const tab = e.target.closest("[data-pane]");
+      if (!tab || tab.disabled || tab.classList.contains("pane")) return;
       const pane = tab.dataset.pane;
-      root.querySelectorAll(".summary-cell").forEach((t) => {
+      root.querySelectorAll("[data-pane]").forEach((t) => {
+        if (t.classList.contains("pane")) return;
         const on = t === tab;
         t.classList.toggle("active", on);
         t.setAttribute("aria-selected", on ? "true" : "false");
@@ -274,7 +275,36 @@
     });
   }
 
-  bindSummaryTabs("vaultTabs");
+  function switchVaultPane(pane) {
+    const scope = document.getElementById("scheme-b");
+    if (!scope || !pane) return;
+    scope.querySelectorAll("#vaultTabs [data-pane]").forEach((t) => {
+      const on = t.dataset.pane === pane;
+      t.classList.toggle("active", on);
+      t.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    scope.querySelectorAll("#tbStats [data-pane]").forEach((t) => {
+      t.classList.toggle("on", t.dataset.pane === pane);
+    });
+    scope.querySelectorAll(".pane[data-pane]").forEach((p) => {
+      const on = p.dataset.pane === pane;
+      p.hidden = !on;
+      p.classList.toggle("active", on);
+    });
+  }
+
+  document.getElementById("vaultTabs")?.addEventListener("click", (e) => {
+    const tab = e.target.closest("[data-pane]");
+    if (!tab) return;
+    switchVaultPane(tab.dataset.pane);
+  });
+
+  document.getElementById("tbStats")?.addEventListener("click", (e) => {
+    const tab = e.target.closest("[data-pane]");
+    if (!tab) return;
+    switchVaultPane(tab.dataset.pane);
+  });
+
   bindSummaryTabs("pfTabs");
 
   // 三方案切换

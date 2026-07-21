@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=16" />
-  <link rel="stylesheet" href="schemes.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=17" />
+  <link rel="stylesheet" href="schemes.css?v=5" />
 </head>
 <body>
 <section class="phone phone-app" id="demo-vault" aria-label="第四Tab三方案">
@@ -158,15 +158,16 @@
       </div>
 
 <div class="scheme-view on" id="scheme-b" data-scheme="b">
-<div class="top-stack">
-          <button type="button" class="auth-strip" data-tool="auth" aria-label="鉴别服务">
-            <div class="auth-strip-text">
-              <strong class="heiti">鉴别服务</strong>
-              <em>累计 15.8 亿+ · 你有 1 次免费鉴别将过期</em>
-            </div>
-            <div class="auth-strip-side">
-              <span class="chev" aria-hidden="true">›</span>
-            </div>
+        <div class="tb-stats" id="tbStats" aria-label="想要与我有统计">
+          <button type="button" class="tb-stat on" data-pane="want">
+            <span class="tb-stat-kicker">想要 · 10 件</span>
+            <strong class="tb-stat-value heiti"><span class="yen">¥</span>8,581</strong>
+            <span class="tb-stat-change">今天 -¥217</span>
+          </button>
+          <button type="button" class="tb-stat" data-pane="have">
+            <span class="tb-stat-kicker">我有 · 6 件</span>
+            <strong class="tb-stat-value heiti"><span class="yen">¥</span>6,649</strong>
+            <span class="tb-stat-change up">今天 +¥214</span>
           </button>
         </div>
 
@@ -175,17 +176,15 @@
             <button type="button" class="summary-cell active" data-pane="want" role="tab" aria-selected="true">
               <span class="summary-label">想要</span>
               <strong class="summary-value heiti" id="wantCount">10</strong>
-              <span class="summary-sub down" id="wantSub">3件降价</span>
             </button>
             <button type="button" class="summary-cell" data-pane="offer" role="tab" aria-selected="false">
               <span class="summary-label">还价</span>
               <strong class="summary-value heiti">6</strong>
-              <span class="summary-sub warn">2待处理</span>
+              <span class="summary-sub">2待处理</span>
             </button>
             <button type="button" class="summary-cell" data-pane="have" role="tab" aria-selected="false">
-              <span class="summary-label">持有</span>
+              <span class="summary-label">我有</span>
               <strong class="summary-value heiti">6</strong>
-              <span class="summary-sub up">估值 +¥210</span>
             </button>
           </section>
 
@@ -699,6 +698,6 @@
           </button>
         </nav>
       </section>
-  <script src="app.js?v=16"></script>
+  <script src="app.js?v=17"></script>
 </body>
 </html>
