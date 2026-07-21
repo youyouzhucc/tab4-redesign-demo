@@ -9,6 +9,10 @@
   padding: 3px;
 }
 
+.scheme-switch.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .scheme-switch button {
   border: none;
   background: transparent;
