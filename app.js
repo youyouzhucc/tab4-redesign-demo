@@ -365,7 +365,7 @@
     }, 700);
   });
 
-  document.getElementById("addItemBtn")?.addEventListener("click", () => openTool("price"));
+  document.getElementById("addItemBtn")?.addEventListener("click", () => openTool("auth"));
 
   document.querySelectorAll(".rec-add").forEach((btn) => {
     btn.addEventListener("click", () => {

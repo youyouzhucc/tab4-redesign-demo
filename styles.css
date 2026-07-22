@@ -543,7 +543,7 @@ button {
 
 .summary-bar {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   align-items: stretch;
   margin: 0;
   padding: 0;
@@ -629,6 +629,15 @@ button {
 }
 
 /* 工具入口：线框图标 + 列表式，减少卡片噪音 */
+.tool-menu-single {
+  grid-template-columns: 1fr;
+}
+
+.summary-bar.cols-3,
+.summary-bar:has(.summary-cell:nth-child(3):last-child) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .tool-menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
