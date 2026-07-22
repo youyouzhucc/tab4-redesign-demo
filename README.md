@@ -1,20 +1,15 @@
-# 95分 · 第四 Tab Demo（交易台 / 服务台）
+# 95分 · 我的好物 Demo
 
-同一「好物」视觉体系内，顶部切换两个方向。
+第四 Tab「我的好物」交互稿（回退到：今日消息 + AI估价/鉴别 + 想要/还价/我有/AI估价）。
 
-## 打开 Demo
+## 打开
 
 https://youyouzhucc.github.io/tab4-redesign-demo/
 
-| Tab | 说明 | 直达 |
-| --- | --- | --- |
-| 交易台 | 想要/我有总值 + 想要/还价/我有清单 | [index.html#b](https://youyouzhucc.github.io/tab4-redesign-demo/#b) |
-| 服务台 | 消息待办 + 鉴别 | [index.html#c](https://youyouzhucc.github.io/tab4-redesign-demo/#c) |
-
-## 本地
+本地：
 
 ```bash
-python3 -m http.server 8766
+python3 -m http.server 8766 --bind 127.0.0.1
 ```
 
 http://127.0.0.1:8766/

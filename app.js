@@ -6,12 +6,6 @@
       steps: ["选择品类与品牌", "按指引拍摄细节图", "获取鉴别结论与建议"],
       cta: "开始鉴别",
     },
-    messages: {
-      title: "消息中心",
-      desc: "查看交易查验、降价提醒与物流进度，优先处理待办。",
-      steps: ["查看未读通知", "处理待办事项", "按需开启推送"],
-      cta: "进入消息中心",
-    },
     price: {
       title: "AI估价",
       desc: "结合成色、瑕疵与近期成交，给出市场参考价，辅助买卖决策。",
@@ -23,7 +17,7 @@
   const MARKETS = {
     aj1low: {
       title: "Air Jordan 1 Low 绿白",
-      img: "assets/p-aj1low.jpg",
+      img: "assets/p-aj1low.png",
       hot: "HOT 328人想要 · 近7日 46人买过",
       retail: "¥1299",
       brand: "Jordan",
@@ -46,7 +40,7 @@
     },
     scarf: {
       title: "Acne Studios 窄版围巾",
-      img: "assets/p-scarf.jpg",
+      img: "assets/p-scarf.png",
       hot: "HOT 86人想要 · 近7日 12人买过",
       retail: "¥2100",
       brand: "Acne",
@@ -69,7 +63,7 @@
     },
     gshock: {
       title: "Casio G-Shock GA-2100",
-      img: "assets/p-gshock.jpg",
+      img: "assets/p-gshock.png",
       hot: "156人想要 · 近7日 23人买过",
       retail: "¥999",
       brand: "Casio",
@@ -92,7 +86,7 @@
     },
     aj1: {
       title: "AJ1 Retro High 黑白",
-      img: "assets/p-aj1.jpg",
+      img: "assets/p-aj1.png",
       hot: "HOT 545人想要 · 近7日 61人买过",
       retail: "¥1399",
       brand: "Jordan",
@@ -115,7 +109,7 @@
     },
     coach: {
       title: "Coach 托特包",
-      img: "assets/p-coach.jpg",
+      img: "assets/p-coach.png",
       hot: "HOT 212人想要 · 近7日 18人买过",
       retail: "¥3900",
       brand: "Coach",
@@ -138,7 +132,7 @@
     },
     nb550: {
       title: "New Balance 550",
-      img: "assets/p-nb550.jpg",
+      img: "assets/p-nb550.png",
       hot: "1.1万件成交 · 近7日 89人买过",
       retail: "¥899",
       brand: "NB",
@@ -161,7 +155,7 @@
     },
     samba: {
       title: "adidas Samba OG",
-      img: "assets/p-samba.jpg",
+      img: "assets/p-samba.png",
       hot: "96人想要 · 近7日成交走弱",
       retail: "¥899",
       brand: "adidas",
@@ -184,7 +178,7 @@
     },
     dunk: {
       title: "Nike Dunk Low 熊猫",
-      img: "assets/p-dunk.jpg",
+      img: "assets/p-dunk.png",
       hot: "HOT 890人想要 · 近7日 72人买过",
       retail: "¥799",
       brand: "Nike",
@@ -207,7 +201,7 @@
     },
     af1: {
       title: "Nike Air Force 1 LE 纯白",
-      img: "assets/p-af1.jpg",
+      img: "assets/p-af1.png",
       hot: "HOT 1.2万人想要",
       retail: "¥749",
       brand: "Nike",
@@ -230,7 +224,7 @@
     },
     hoodie: {
       title: "Essentials 基础卫衣",
-      img: "assets/p-hoodie.jpg",
+      img: "assets/p-hoodie.png",
       hot: "64人想要 · 仅一件在售",
       retail: "¥690",
       brand: "Fear of God",
@@ -253,65 +247,29 @@
     },
   };
 
-  function bindSummaryTabs(rootId) {
-    const root = document.getElementById(rootId);
-    if (!root) return;
-    root.addEventListener("click", (e) => {
-      const tab = e.target.closest("[data-pane]");
-      if (!tab || tab.disabled || tab.classList.contains("pane")) return;
-      const pane = tab.dataset.pane;
-      root.querySelectorAll("[data-pane]").forEach((t) => {
-        if (t.classList.contains("pane")) return;
-        const on = t === tab;
-        t.classList.toggle("active", on);
-        t.setAttribute("aria-selected", on ? "true" : "false");
-      });
-      const scope = root.closest(".scheme-view") || document.getElementById("demo-vault");
-      scope.querySelectorAll(".pane[data-pane]").forEach((p) => {
-        const on = p.dataset.pane === pane;
-        p.hidden = !on;
-        p.classList.toggle("active", on);
-      });
+  const vaultTabs = document.getElementById("vaultTabs");
+
+  function switchVaultPane(pane) {
+    if (!pane || !vaultTabs) return;
+    const tab = vaultTabs.querySelector(`.summary-cell[data-pane="${pane}"]`);
+    if (!tab) return;
+    vaultTabs.querySelectorAll(".summary-cell").forEach((t) => {
+      const on = t === tab;
+      t.classList.toggle("active", on);
+      t.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    document.querySelectorAll("#demo-vault .pane").forEach((p) => {
+      const on = p.dataset.pane === pane;
+      p.hidden = !on;
+      p.classList.toggle("active", on);
     });
   }
 
-  bindSummaryTabs("vaultTabs");
-
-  // 两方案：交易台 + 服务台；旧货盘 #a 并入交易台
-  const schemeMeta = {
-    a: { title: "好物", tab: "好物", label: "交易台", alias: "b" },
-    b: { title: "好物", tab: "好物", label: "交易台" },
-    c: { title: "服务", tab: "服务", label: "服务台" },
-  };
-
-  function switchScheme(key) {
-    const meta = schemeMeta[key];
-    if (!meta) return;
-    const viewKey = meta.alias || key;
-    document.querySelectorAll(".scheme-view").forEach((v) => {
-      v.classList.toggle("on", v.dataset.scheme === viewKey);
-    });
-    document.querySelectorAll("#schemeSwitch button").forEach((b) => {
-      b.classList.toggle("on", b.dataset.scheme === viewKey);
-    });
-    const title = document.getElementById("schemeTitle");
-    const tabLabel = document.getElementById("mainTabLabel");
-    const mainTab = document.getElementById("mainTab");
-    if (title) title.textContent = meta.title;
-    if (tabLabel) tabLabel.textContent = meta.tab;
-    if (mainTab) mainTab.setAttribute("aria-label", `${meta.tab}`);
-    history.replaceState(null, "", `#${viewKey}`);
-  }
-
-  document.getElementById("schemeSwitch")?.addEventListener("click", (e) => {
-    const btn = e.target.closest("button[data-scheme]");
-    if (!btn) return;
-    switchScheme(btn.dataset.scheme);
+  vaultTabs?.addEventListener("click", (e) => {
+    const tab = e.target.closest(".summary-cell[data-pane]");
+    if (!tab) return;
+    switchVaultPane(tab.dataset.pane);
   });
-
-  const hash = (location.hash || "").replace("#", "");
-  if (schemeMeta[hash]) switchScheme(hash);
-  else switchScheme("b");
 
   // Tool sheet
   const sheet = document.getElementById("toolSheet");
@@ -384,12 +342,6 @@
       return;
     }
 
-    const msgBtn = e.target.closest("[data-entry='messages'], #openMessages, #openMessages2");
-    if (msgBtn) {
-      openTool("messages");
-      return;
-    }
-
     const toolBtn = e.target.closest("[data-tool]");
     if (!toolBtn) return;
 
@@ -413,7 +365,7 @@
     }, 700);
   });
 
-  document.getElementById("addItemBtn")?.addEventListener("click", () => openTool("auth"));
+  document.getElementById("addItemBtn")?.addEventListener("click", () => openTool("price"));
 
   document.querySelectorAll(".rec-add").forEach((btn) => {
     btn.addEventListener("click", () => {

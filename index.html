@@ -5,132 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <title>第四 Tab · 交易台 v30</title>
+  <title>我的好物</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=30" />
-  <link rel="stylesheet" href="schemes.css?v=30" />
+  <link rel="stylesheet" href="styles.css?v=40" />
 </head>
 <body>
-<section class="phone phone-app" id="demo-vault" aria-label="第四Tab交易台服务台">
+<section class="phone phone-app" id="demo-vault" aria-label="我的好物">
         <header class="page-head">
-          <h1 class="heiti" id="schemeTitle">好物</h1>
+          <h1 class="page-title heiti">我的好物</h1>
         </header>
-        <div class="scheme-switch-wrap">
-          <div class="scheme-switch cols-2" id="schemeSwitch" role="tablist" aria-label="方案切换">
-            <button type="button" class="on" data-scheme="b" role="tab">交易台</button>
-            <button type="button" data-scheme="c" role="tab">服务台</button>
-          </div>
-        </div>
 
-      <div class="scheme-view on" id="scheme-b" data-scheme="b">
-        <div class="tb-stats" aria-label="我有与想要统计">
-          <div class="tb-stat">
-            <span class="tb-stat-kicker">我有总值</span>
-            <strong class="tb-stat-value heiti"><span class="yen">¥</span>6,649</strong>
-            <span class="tb-stat-change">今天 +¥214 · 6 件</span>
+        <div class="top-stack">
+          <div class="news-ticker" aria-label="今日消息">
+            <div class="ticker-head">
+              <span class="ticker-label">今日消息</span>
+              <span class="ticker-time">07:30 更新</span>
+            </div>
+            <ul class="ticker-list">
+              <li>想要 · AJ1 Low 7日 -¥87，Samba 行情走弱</li>
+              <li>我有 · Coach 估值 +¥120，Dunk 成交走热</li>
+            </ul>
           </div>
-          <div class="tb-stat">
-            <span class="tb-stat-kicker">想要总值</span>
-            <strong class="tb-stat-value heiti"><span class="yen">¥</span>8,581</strong>
-            <span class="tb-stat-change">今天 -¥217 · 10 件</span>
-          </div>
+
+          <section class="tool-menu" aria-label="鉴别与估价工具">
+            <button class="tool-card" type="button" data-tool="price">
+              <span class="tool-card-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M4 8.5h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-10z" stroke="currentColor" stroke-width="1.7"/>
+                  <path d="M8 8.5V7a4 4 0 0 1 8 0v1.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  <path d="M12 12.2v4.2M10.2 14.8h3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="tool-card-text">
+                <strong class="heiti">AI估价</strong>
+                <em>拍图估价格</em>
+              </span>
+              <span class="tool-card-arrow" aria-hidden="true">›</span>
+            </button>
+            <button class="tool-card" type="button" data-tool="auth">
+              <span class="tool-card-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3l7 3v5c0 4.2-2.7 7.9-7 9.5C7.7 18.9 5 15.2 5 11V6l7-3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                  <path d="M9.6 11.4l1.7 1.7 3.3-3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="tool-card-text">
+                <strong class="heiti">鉴别真假</strong>
+                <em>拍照识真伪</em>
+              </span>
+              <span class="tool-card-arrow" aria-hidden="true">›</span>
+            </button>
+          </section>
+
         </div>
 
         <div class="list-module">
-          <section class="summary-bar text-tabs" id="vaultTabs" role="tablist" aria-label="清单">
-            <button type="button" class="summary-cell active" data-pane="have" role="tab" aria-selected="true">
-              <span class="summary-label">我有</span>
-            </button>
-            <button type="button" class="summary-cell" data-pane="want" role="tab" aria-selected="false">
+          <section class="summary-bar" id="vaultTabs" role="tablist" aria-label="我的清单">
+            <button type="button" class="summary-cell active" data-pane="want" role="tab" aria-selected="true">
               <span class="summary-label">想要</span>
+              <strong class="summary-value heiti" id="wantCount">10</strong>
+              <span class="summary-sub down" id="wantSub">3件降价</span>
             </button>
             <button type="button" class="summary-cell" data-pane="offer" role="tab" aria-selected="false">
-              <span class="summary-label">还价 <i class="summary-badge" aria-label="2待处理">2</i></span>
+              <span class="summary-label">还价</span>
+              <strong class="summary-value heiti">6</strong>
+              <span class="summary-sub warn">2待处理</span>
+            </button>
+            <button type="button" class="summary-cell" data-pane="have" role="tab" aria-selected="false">
+              <span class="summary-label">我有</span>
+              <strong class="summary-value heiti">6</strong>
+              <span class="summary-sub up">估值 +¥210</span>
+            </button>
+            <button type="button" class="summary-cell" data-pane="ai" role="tab" aria-selected="false">
+              <span class="summary-label">AI估价</span>
+              <strong class="summary-value heiti">5</strong>
+              <span class="summary-sub">可出售</span>
             </button>
           </section>
 
           <main class="scroll vault-scroll">
-          <div class="pane active" id="pane-have" data-pane="have">
-            <ul class="rows">
-              <li class="row card xy-card" data-market="aj1">
-                <div class="xy-media"><img class="row-img" src="assets/p-aj1.jpg" alt="" /></div>
-                <div class="row-body">
-                  <h3 class="heiti">AJ1 Retro High 黑白脚趾 高帮篮球鞋</h3>
-                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>1,280</p><button type="button" class="trend up" data-market="aj1" aria-label="查看行情"><svg class="spark up" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,16 10,14 18,10 26,12 34,6 47,3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">7日 +¥90</span></button></div>
-                  <p class="xy-meta">市场全新价 ¥1399 · <span class="status-tag ok">可出售</span></p>
-                  <div class="row-actions xy-actions">
-                    <button type="button" class="pill outline" data-tool="auth">鉴别真假</button>
-                    <button type="button" class="pill primary">卖了换钱</button>
-                  </div>
-                </div>
-              </li>
-              <li class="row card xy-card" data-market="coach">
-                <div class="xy-media"><img class="row-img" src="assets/p-coach.jpg" alt="" /></div>
-                <div class="row-body">
-                  <h3 class="heiti">Coach 托特包 经典款</h3>
-                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>2,160</p><button type="button" class="trend up" data-market="coach" aria-label="查看行情"><svg class="spark up" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,16 10,14 18,10 26,12 34,6 47,3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">7日 +¥120</span></button></div>
-                  <p class="xy-meta">市场全新价 ¥3900 · <span class="status-tag ok">可出售</span></p>
-                  <div class="row-actions xy-actions">
-                    <button type="button" class="pill outline" data-tool="auth">鉴别真假</button>
-                    <button type="button" class="pill primary">卖了换钱</button>
-                  </div>
-                </div>
-              </li>
-              <li class="row card xy-card" data-market="nb550">
-                <div class="xy-media"><img class="row-img" src="assets/p-nb550.jpg" alt="" /></div>
-                <div class="row-body">
-                  <h3 class="heiti">New Balance 550 灰白</h3>
-                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>620</p><button type="button" class="trend flat" data-market="nb550" aria-label="查看行情"><svg class="spark flat" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,10 12,9 24,11 36,10 47,10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">近7日持平</span></button></div>
-                  <p class="xy-meta">市场全新价 ¥899 · <span class="status-tag">未鉴别</span></p>
-                  <div class="row-actions xy-actions">
-                    <button type="button" class="pill outline">卖了换钱</button>
-                    <button type="button" class="pill primary" data-tool="auth">鉴别真假</button>
-                  </div>
-                </div>
-              </li>
-              <li class="row card xy-card" data-market="dunk">
-                <div class="xy-media"><img class="row-img" src="assets/p-dunk.jpg" alt="" /></div>
-                <div class="row-body">
-                  <h3 class="heiti">Nike Dunk Low 熊猫</h3>
-                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>699</p><button type="button" class="trend up" data-market="dunk" aria-label="查看行情"><svg class="spark up" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,16 10,14 18,10 26,12 34,6 47,3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">热门走强</span></button></div>
-                  <p class="xy-meta">市场全新价 ¥799 · <span class="status-tag warn">待鉴别</span></p>
-                  <div class="row-actions xy-actions">
-                    <button type="button" class="pill primary" data-tool="auth">鉴别真假</button>
-                  </div>
-                </div>
-              </li>
-              <li class="row card xy-card" data-market="samba">
-                <div class="xy-media"><img class="row-img" src="assets/p-samba.jpg" alt="" /></div>
-                <div class="row-body">
-                  <h3 class="heiti">adidas Samba OG</h3>
-                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>480</p><button type="button" class="trend down" data-market="samba" aria-label="查看行情"><svg class="spark down" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,4 10,6 18,9 26,8 34,14 47,17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">行情走弱</span></button></div>
-                  <p class="xy-meta">市场全新价 ¥899 · <span class="status-tag ok">可出售</span></p>
-                  <div class="row-actions xy-actions">
-                    <button type="button" class="pill outline" data-tool="auth">鉴别真假</button>
-                    <button type="button" class="pill primary">卖了换钱</button>
-                  </div>
-                </div>
-              </li>
-              <li class="row card xy-card" data-market="hoodie">
-                <div class="xy-media"><img class="row-img" src="assets/p-hoodie.jpg" alt="" /></div>
-                <div class="row-body">
-                  <h3 class="heiti">Essentials 基础卫衣</h3>
-                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>380</p><button type="button" class="trend down" data-market="hoodie" aria-label="查看行情"><svg class="spark down" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,4 10,6 18,9 26,8 34,14 47,17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">库存紧张</span></button></div>
-                  <p class="xy-meta">市场全新价 ¥690 · <span class="status-tag">未鉴别</span></p>
-                  <div class="row-actions xy-actions">
-                    <button type="button" class="pill outline">卖了换钱</button>
-                    <button type="button" class="pill primary" data-tool="auth">鉴别真假</button>
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <button class="block-cta quiet" type="button" id="addItemBtn">+ 添加持有</button>
-          </div>
-
-                    <div class="pane" id="pane-want" data-pane="want" hidden>
+          <div class="pane active" id="pane-want" data-pane="want">
             <ul class="rows" id="wantList">
               <li class="row card xy-card" data-market="aj1low">
                 <div class="xy-media">
@@ -304,32 +260,85 @@
                   <p>¥380</p>
                   <button type="button" class="rec-add">+ 想要</button>
                 </article>
-                <article class="rec-item">
-                  <img src="assets/p-nb550.jpg" alt="" />
-                  <h5 class="heiti">NB 550 灰白</h5>
-                  <p>¥620</p>
-                  <button type="button" class="rec-add">+ 想要</button>
-                </article>
-                <article class="rec-item">
-                  <img src="assets/p-gshock.jpg" alt="" />
-                  <h5 class="heiti">G-Shock</h5>
-                  <p>¥468</p>
-                  <button type="button" class="rec-add">+ 想要</button>
-                </article>
-                <article class="rec-item">
-                  <img src="assets/p-aj1.jpg" alt="" />
-                  <h5 class="heiti">AJ1 黑白脚趾</h5>
-                  <p>¥1,280</p>
-                  <button type="button" class="rec-add">+ 想要</button>
-                </article>
-                <article class="rec-item">
-                  <img src="assets/p-scarf.jpg" alt="" />
-                  <h5 class="heiti">Acne 围巾</h5>
-                  <p>¥1,150</p>
-                  <button type="button" class="rec-add">+ 想要</button>
-                </article>
               </div>
             </section>
+          </div>
+
+                    <div class="pane" id="pane-have" data-pane="have" hidden>
+            <ul class="rows">
+              <li class="row card xy-card" data-market="aj1">
+                <div class="xy-media"><img class="row-img" src="assets/p-aj1.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">AJ1 Retro High 黑白脚趾 高帮篮球鞋</h3>
+                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>1,280</p><button type="button" class="trend up" data-market="aj1" aria-label="查看行情"><svg class="spark up" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,16 10,14 18,10 26,12 34,6 47,3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">7日 +¥90</span></button></div>
+                  <p class="xy-meta">市场全新价 ¥1399 · <span class="status-tag ok">估价成功</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill outline" data-tool="price">AI估价</button>
+                    <button type="button" class="pill primary">卖了换钱</button>
+                  </div>
+                </div>
+              </li>
+              <li class="row card xy-card" data-market="coach">
+                <div class="xy-media"><img class="row-img" src="assets/p-coach.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">Coach 托特包 经典款</h3>
+                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>2,160</p><button type="button" class="trend up" data-market="coach" aria-label="查看行情"><svg class="spark up" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,16 10,14 18,10 26,12 34,6 47,3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">7日 +¥120</span></button></div>
+                  <p class="xy-meta">市场全新价 ¥3900 · <span class="status-tag ok">估价成功</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill outline" data-tool="price">AI估价</button>
+                    <button type="button" class="pill primary">卖了换钱</button>
+                  </div>
+                </div>
+              </li>
+              <li class="row card xy-card" data-market="nb550">
+                <div class="xy-media"><img class="row-img" src="assets/p-nb550.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">New Balance 550 灰白</h3>
+                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>620</p><button type="button" class="trend flat" data-market="nb550" aria-label="查看行情"><svg class="spark flat" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,10 12,9 24,11 36,10 47,10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">近7日持平</span></button></div>
+                  <p class="xy-meta">市场全新价 ¥899 · <span class="status-tag">未估价</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill outline">卖了换钱</button>
+                    <button type="button" class="pill primary" data-tool="price">AI估价</button>
+                  </div>
+                </div>
+              </li>
+              <li class="row card xy-card" data-market="dunk">
+                <div class="xy-media"><img class="row-img" src="assets/p-dunk.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">Nike Dunk Low 熊猫</h3>
+                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>699</p><button type="button" class="trend up" data-market="dunk" aria-label="查看行情"><svg class="spark up" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,16 10,14 18,10 26,12 34,6 47,3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">热门走强</span></button></div>
+                  <p class="xy-meta">市场全新价 ¥799 · <span class="status-tag warn">估价失败</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill primary" data-tool="price">再次估价</button>
+                  </div>
+                </div>
+              </li>
+              <li class="row card xy-card" data-market="samba">
+                <div class="xy-media"><img class="row-img" src="assets/p-samba.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">adidas Samba OG</h3>
+                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>480</p><button type="button" class="trend down" data-market="samba" aria-label="查看行情"><svg class="spark down" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,4 10,6 18,9 26,8 34,14 47,17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">行情走弱</span></button></div>
+                  <p class="xy-meta">市场全新价 ¥899 · <span class="status-tag ok">估价成功</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill outline" data-tool="price">AI估价</button>
+                    <button type="button" class="pill primary">卖了换钱</button>
+                  </div>
+                </div>
+              </li>
+              <li class="row card xy-card" data-market="hoodie">
+                <div class="xy-media"><img class="row-img" src="assets/p-hoodie.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">Essentials 基础卫衣</h3>
+                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>380</p><button type="button" class="trend down" data-market="hoodie" aria-label="查看行情"><svg class="spark down" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,4 10,6 18,9 26,8 34,14 47,17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">库存紧张</span></button></div>
+                  <p class="xy-meta">市场全新价 ¥690 · <span class="status-tag">未估价</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill outline">卖了换钱</button>
+                    <button type="button" class="pill primary" data-tool="price">AI估价</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <button class="block-cta quiet" type="button" id="addItemBtn">+ 添加我有</button>
           </div>
 
                     <div class="pane" id="pane-offer" data-pane="offer" hidden>
@@ -407,71 +416,75 @@
               </li>
             </ul>
           </div>
-        
+
+                    <div class="pane" id="pane-ai" data-pane="ai" hidden>
+            <div class="ai-bar">
+              <p>共 <b>5</b> 份估价报告 · 成功可直接卖了换钱</p>
+              <button type="button" class="pill primary" data-tool="price">再估一件</button>
+            </div>
+            <ul class="rows">
+              <li class="row card xy-card" data-market="nb550">
+                <div class="xy-media"><img class="row-img" src="assets/p-nb550.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">New Balance 550 灰白 复古跑鞋</h3>
+                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>620</p><button type="button" class="trend flat" data-market="nb550" aria-label="查看行情"><svg class="spark flat" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,10 12,9 24,11 36,10 47,10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">估价成功</span></button></div>
+                  <p class="xy-meta">市场全新价 ¥899 · 今天 · <span class="status-tag ok">估价成功</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill outline" data-tool="price">再次估价</button>
+                    <button type="button" class="pill primary">卖了换钱</button>
+                  </div>
+                </div>
+              </li>
+              <li class="row card xy-card" data-market="aj1">
+                <div class="xy-media"><img class="row-img" src="assets/p-aj1.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">AJ1 Retro High 黑白脚趾 高帮篮球鞋</h3>
+                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>1,280</p><button type="button" class="trend up" data-market="aj1" aria-label="查看行情"><svg class="spark up" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,16 10,14 18,10 26,12 34,6 47,3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">高于上次</span></button></div>
+                  <p class="xy-meta">市场全新价 ¥1399 · 昨天 · <span class="status-tag ok">估价成功</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill outline" data-tool="price">再次估价</button>
+                    <button type="button" class="pill primary">卖了换钱</button>
+                  </div>
+                </div>
+              </li>
+              <li class="row card xy-card" data-market="dunk">
+                <div class="xy-media"><img class="row-img" src="assets/p-dunk.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">Nike Dunk Low 熊猫黑白 经典配色</h3>
+                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>—</p><button type="button" class="trend flat" data-market="dunk" aria-label="查看行情"><svg class="spark flat" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,10 12,9 24,11 36,10 47,10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">估价失败</span></button></div>
+                  <p class="xy-meta">市场全新价 ¥799 · 前天 · <span class="status-tag warn">估价失败</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill primary" data-tool="price">再次估价</button>
+                  </div>
+                </div>
+              </li>
+              <li class="row card xy-card" data-market="coach">
+                <div class="xy-media"><img class="row-img" src="assets/p-coach.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">Coach 托特包 经典老花/素皮托特</h3>
+                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>2,160</p><button type="button" class="trend up" data-market="coach" aria-label="查看行情"><svg class="spark up" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,16 10,14 18,10 26,12 34,6 47,3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">估值偏强</span></button></div>
+                  <p class="xy-meta">市场全新价 ¥3900 · 本周 · <span class="status-tag ok">估价成功</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill outline" data-tool="price">再次估价</button>
+                    <button type="button" class="pill primary">卖了换钱</button>
+                  </div>
+                </div>
+              </li>
+              <li class="row card xy-card" data-market="hoodie">
+                <div class="xy-media"><img class="row-img" src="assets/p-hoodie.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">Essentials 基础卫衣 宽松连帽</h3>
+                  <div class="price-row"><p class="xy-price"><span class="yen">¥</span>—</p><button type="button" class="trend down" data-market="hoodie" aria-label="查看行情"><svg class="spark down" viewBox="0 0 48 20" aria-hidden="true"><polyline points="1,4 10,6 18,9 26,8 34,14 47,17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="trend-tip">识别失败</span></button></div>
+                  <p class="xy-meta">市场全新价 ¥690 · 上周 · <span class="status-tag warn">估价失败</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill primary" data-tool="price">再次估价</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </main>
         </div>
-      </div>
-
-      <div class="scheme-view" id="scheme-c" data-scheme="c">
-        <div class="svc-scroll">
-          <section class="svc-block" aria-label="消息中心">
-            <button type="button" class="auth-strip" id="openMessages" data-entry="messages">
-              <div class="auth-strip-text">
-                <strong class="heiti">消息中心</strong>
-                <em>交易查验 · 降价提醒 · 物流进度</em>
-              </div>
-              <div class="auth-strip-side">
-                <i class="svc-badge">5</i>
-                <span class="chev" aria-hidden="true">›</span>
-              </div>
-            </button>
-            <div class="svc-section-label">
-              <h2 class="heiti">最近待处理</h2>
-              <button type="button" class="text-link" id="openMessages2">全部</button>
-            </div>
-            <ul class="svc-rows">
-              <li>
-                <button type="button" class="svc-row" data-entry="messages">
-                  <span class="svc-ico deal">交</span>
-                  <div><strong>交易通知</strong><p>订单查验中，预计今日出结果</p></div>
-                  <time>刚刚</time>
-                </button>
-              </li>
-              <li>
-                <button type="button" class="svc-row" data-entry="messages">
-                  <span class="svc-ico">降</span>
-                  <div><strong>限时降价</strong><p>你关注的 AJ1 Low 已降 ¥87</p></div>
-                  <time>10小时前</time>
-                </button>
-              </li>
-              <li>
-                <button type="button" class="svc-row" data-entry="messages">
-                  <span class="svc-ico">助</span>
-                  <div><strong>95分小助手</strong><p>鉴别报告已出，可一键挂售</p></div>
-                  <time>昨天</time>
-                </button>
-              </li>
-            </ul>
-          </section>
-          <section class="svc-block" aria-label="鉴别服务">
-            <button type="button" class="auth-strip" data-tool="auth">
-              <div class="auth-strip-text">
-                <strong class="heiti">鉴别服务</strong>
-                <em>累计 15.8 亿+ · 你有 1 次免费鉴别将过期</em>
-              </div>
-              <div class="auth-strip-side"><span class="chev" aria-hidden="true">›</span></div>
-            </button>
-            <ul class="svc-rows">
-              <li><button type="button" class="svc-row" data-tool="auth"><span class="svc-ico">鞋</span><div><strong>鞋靴</strong><p>累计鉴别 6.2亿+</p></div><span class="chev">›</span></button></li>
-              <li><button type="button" class="svc-row" data-tool="auth"><span class="svc-ico">包</span><div><strong>箱包</strong><p>累计鉴别 3.1亿+</p></div><span class="chev">›</span></button></li>
-              <li><button type="button" class="svc-row" data-tool="auth"><span class="svc-ico">表</span><div><strong>腕表</strong><p>累计鉴别 1.4亿+</p></div><span class="chev">›</span></button></li>
-              <li><button type="button" class="svc-row" data-tool="auth"><span class="svc-ico">玩</span><div><strong>潮玩</strong><p>累计鉴别 9800万+</p></div><span class="chev">›</span></button></li>
-              <li><button type="button" class="svc-row" data-tool="auth"><span class="svc-ico">妆</span><div><strong>美妆</strong><p>累计鉴别 7200万+</p></div><span class="chev">›</span></button></li>
-              <li><button type="button" class="svc-row" data-tool="auth"><span class="svc-ico">···</span><div><strong>更多类目</strong><p>覆盖全类目</p></div><span class="chev">›</span></button></li>
-            </ul>
-          </section>
-        </div>
-      </div>
 
         <!-- 查行情详情页 -->
         <div class="market-page" id="marketPage" hidden>
@@ -543,7 +556,7 @@
             <button type="button" class="m-icon">降价</button>
             <button type="button" class="m-icon">想要</button>
             <button type="button" class="m-icon">我有</button>
-            <button type="button" class="m-btn ghost" data-tool="auth">鉴别真假</button>
+            <button type="button" class="m-btn ghost" data-tool="price">AI估价</button>
             <button type="button" class="m-btn primary" id="marketCta">立即购买</button>
           </div>
         </div>
@@ -572,11 +585,11 @@
             </span>
             <span>闲置换钱</span>
           </button>
-          <button type="button" class="tab on" id="mainTab" aria-label="好物，有新消息">
+          <button type="button" class="tab on" aria-label="我的好物，有新消息">
             <span class="tab-svg" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg>
             </span>
-            <span id="mainTabLabel">好物</span>
+            <span>我的好物</span>
             <i class="tab-dot" aria-hidden="true"></i>
           </button>
           <button type="button" class="tab">
@@ -587,6 +600,6 @@
           </button>
         </nav>
       </section>
-  <script src="app.js?v=30"></script>
+  <script src="app.js?v=40"></script>
 </body>
 </html>
