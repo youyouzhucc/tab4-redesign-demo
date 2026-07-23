@@ -5,38 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
-  <title>我的好物</title>
+  <title>好物</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=41" />
+  <link rel="stylesheet" href="styles.css?v=42" />
 </head>
 <body>
-<section class="phone phone-app" id="demo-vault" aria-label="我的好物">
+<section class="phone phone-app" id="demo-vault" aria-label="好物">
         <header class="page-head">
-          <h1 class="page-title heiti">我的好物</h1>
+          <h1 class="page-title heiti">好物</h1>
         </header>
 
-        <div class="top-stack">
-          <section class="tool-menu tool-menu-single" aria-label="鉴别工具">
-            <button class="tool-card" type="button" data-tool="auth">
-              <span class="tool-card-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 3l7 3v5c0 4.2-2.7 7.9-7 9.5C7.7 18.9 5 15.2 5 11V6l7-3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-                  <path d="M9.6 11.4l1.7 1.7 3.3-3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <span class="tool-card-text">
-                <strong class="heiti">鉴别真假</strong>
-                <em>拍照识真伪 · 假一赔三</em>
-              </span>
-              <span class="tool-card-arrow" aria-hidden="true">›</span>
-            </button>
-          </section>
-        </div>
-
         <div class="list-module">
-          <section class="summary-bar" id="vaultTabs" role="tablist" aria-label="我的清单">
+          <section class="summary-bar cols-4" id="vaultTabs" role="tablist" aria-label="清单">
             <button type="button" class="summary-cell active" data-pane="want" role="tab" aria-selected="true">
               <span class="summary-label">想要</span>
               <strong class="summary-value heiti" id="wantCount">10</strong>
@@ -51,6 +33,11 @@
               <span class="summary-label">我有</span>
               <strong class="summary-value heiti">6</strong>
               <span class="summary-sub up">估值 +¥210</span>
+            </button>
+            <button type="button" class="summary-cell" data-pane="auth" role="tab" aria-selected="false">
+              <span class="summary-label">鉴别</span>
+              <strong class="summary-value heiti">4</strong>
+              <span class="summary-sub">1处理中</span>
             </button>
           </section>
 
@@ -385,6 +372,74 @@
               </li>
             </ul>
           </div>
+
+          <div class="pane" id="pane-auth" data-pane="auth" hidden>
+            <div class="auth-pane-head">
+              <h2 class="heiti">我的鉴别贴</h2>
+              <span>共 4 条</span>
+            </div>
+            <ul class="auth-posts">
+              <li>
+                <button type="button" class="auth-post" data-tool="auth">
+                  <img src="assets/p-dunk.jpg" alt="" />
+                  <div>
+                    <strong class="heiti">Nike Dunk Low 熊猫</strong>
+                    <p>鞋靴鉴别 · 已提交 3 张细节图</p>
+                    <em class="auth-state doing">鉴别中</em>
+                  </div>
+                  <time>今天</time>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="auth-post" data-tool="auth">
+                  <img src="assets/p-aj1.jpg" alt="" />
+                  <div>
+                    <strong class="heiti">AJ1 Retro High 黑白脚趾</strong>
+                    <p>结论：支持正品倾向</p>
+                    <em class="auth-state ok">报告已出</em>
+                  </div>
+                  <time>昨天</time>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="auth-post" data-tool="auth">
+                  <img src="assets/p-coach.jpg" alt="" />
+                  <div>
+                    <strong class="heiti">Coach 经典托特包</strong>
+                    <p>结论：支持正品倾向 · 可挂售</p>
+                    <em class="auth-state ok">报告已出</em>
+                  </div>
+                  <time>本周</time>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="auth-post" data-tool="auth">
+                  <img src="assets/p-nb550.jpg" alt="" />
+                  <div>
+                    <strong class="heiti">New Balance 550</strong>
+                    <p>图片不清晰，需补充中底细节</p>
+                    <em class="auth-state warn">需补图</em>
+                  </div>
+                  <time>上周</time>
+                </button>
+              </li>
+            </ul>
+            <section class="auth-tool-entry" aria-label="鉴别工具">
+              <button class="tool-card" type="button" data-tool="auth">
+                <span class="tool-card-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3l7 3v5c0 4.2-2.7 7.9-7 9.5C7.7 18.9 5 15.2 5 11V6l7-3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M9.6 11.4l1.7 1.7 3.3-3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="tool-card-text">
+                  <strong class="heiti">鉴别真假</strong>
+                  <em>拍照识真伪 · 假一赔三</em>
+                </span>
+                <span class="tool-card-arrow" aria-hidden="true">›</span>
+              </button>
+            </section>
+          </div>
         </main>
         </div>
 
@@ -487,11 +542,11 @@
             </span>
             <span>闲置换钱</span>
           </button>
-          <button type="button" class="tab on" aria-label="我的好物，有新消息">
+          <button type="button" class="tab on" aria-label="好物，有新消息">
             <span class="tab-svg" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg>
             </span>
-            <span>我的好物</span>
+            <span>好物</span>
             <i class="tab-dot" aria-hidden="true"></i>
           </button>
           <button type="button" class="tab">
@@ -502,6 +557,6 @@
           </button>
         </nav>
       </section>
-  <script src="app.js?v=41"></script>
+  <script src="app.js?v=42"></script>
 </body>
 </html>

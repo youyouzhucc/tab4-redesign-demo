@@ -543,7 +543,7 @@ button {
 
 .summary-bar {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: stretch;
   margin: 0;
   padding: 0;
@@ -629,13 +629,121 @@ button {
 }
 
 /* 工具入口：线框图标 + 列表式，减少卡片噪音 */
+.summary-bar.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .tool-menu-single {
   grid-template-columns: 1fr;
 }
 
-.summary-bar.cols-3,
-.summary-bar:has(.summary-cell:nth-child(3):last-child) {
-  grid-template-columns: repeat(3, 1fr);
+/* 鉴别 Tab：我的鉴别贴 + 底部工具入口 */
+.auth-pane-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14px 16px 8px;
+  background: #fff;
+}
+
+.auth-pane-head h2 {
+  font-size: 15px;
+}
+
+.auth-pane-head span {
+  font-size: 12px;
+  color: #999;
+}
+
+.auth-posts {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 8px;
+  background: #fff;
+}
+
+.auth-posts li + li {
+  border-top: 1px solid #f2f2f2;
+}
+
+.auth-post {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+
+.auth-post:active {
+  background: #f7f7f7;
+}
+
+.auth-post img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f5f5f5;
+}
+
+.auth-post strong {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.auth-post p {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+  line-height: 1.35;
+}
+
+.auth-state {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  font-style: normal;
+  color: #666;
+  background: #f2f2f2;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.auth-state.ok {
+  color: #111;
+  background: #ececec;
+}
+
+.auth-state.doing,
+.auth-state.warn {
+  color: #444;
+  background: #f0f0f0;
+}
+
+.auth-post time {
+  font-size: 11px;
+  color: #bbb;
+  white-space: nowrap;
+  align-self: start;
+  padding-top: 2px;
+}
+
+.auth-tool-entry {
+  margin-top: 8px;
+  background: #fff;
+  border-top: 8px solid #f5f5f5;
+  padding-bottom: 16px;
+}
+
+.auth-tool-entry .tool-card {
+  padding: 14px 16px;
 }
 
 .tool-menu {
