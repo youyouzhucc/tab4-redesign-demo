@@ -438,13 +438,6 @@
     document.getElementById("rpTitle").textContent = ctx.title;
     const resultText = ctx.cardResult || "结果：鉴别通过";
     document.getElementById("rpResult").textContent = resultText;
-    const stamp = document.querySelector("#flow-report .auth-stamp");
-    if (stamp) {
-      const isFail = resultText.includes("不通过");
-      stamp.classList.toggle("fail", isFail);
-      stamp.classList.toggle("pass", !isFail);
-      stamp.querySelector(".auth-stamp-text").textContent = isFail ? "鉴别不通过" : "鉴别通过";
-    }
   }
 
   function openFlow(name, el) {

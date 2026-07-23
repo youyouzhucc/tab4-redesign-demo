@@ -801,42 +801,6 @@ button {
   flex: 0 0 auto;
 }
 
-.auth-stamp-line {
-  margin: 0;
-  line-height: 1;
-}
-
-.auth-stamp {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1.5px solid #bbb;
-  display: inline-grid;
-  place-items: center;
-  pointer-events: none;
-  color: #999;
-  background: transparent;
-  transform: rotate(-18deg);
-}
-
-.auth-stamp-text {
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  color: inherit;
-}
-
-.auth-stamp.pass,
-.auth-stamp.fail {
-  color: #999;
-  border-color: #bbb;
-}
-
-.auth-stamp.mini {
-  width: 48px;
-  height: 48px;
-}
 
 .tool-menu {
   display: grid;
@@ -1868,14 +1832,6 @@ button {
   color: #555;
 }
 
-.auth-stamp.mini {
-  position: static;
-  width: 48px;
-  height: 48px;
-  transform: rotate(-18deg);
-  flex: 0 0 auto;
-}
-
 .auth-mini-service {
   font-size: 12px;
   color: #666;
@@ -1964,11 +1920,10 @@ button {
 
 /* 报告 */
 .report-hero {
-  position: relative;
   display: grid;
   grid-template-columns: 72px 1fr;
   gap: 12px;
-  padding: 8px 56px 16px 0;
+  padding: 8px 0 16px;
   border-bottom: 1px solid #f2f2f2;
   margin-bottom: 14px;
 }
@@ -1983,12 +1938,6 @@ button {
 .report-hero h4 {
   font-size: 14px;
   margin-bottom: 6px;
-}
-
-.report-hero .auth-stamp {
-  position: absolute;
-  right: 0;
-  top: 8px;
 }
 
 .report-block {
