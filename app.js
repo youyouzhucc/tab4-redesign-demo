@@ -233,15 +233,19 @@
   };
 
   const vaultTabs = document.getElementById("vaultTabs");
+  const vaultTabsB = document.getElementById("vaultTabsB");
+  const valueBoard = document.getElementById("valueBoard");
+  const phone = document.getElementById("demo-vault");
 
   function switchVaultPane(pane) {
-    if (!pane || !vaultTabs) return;
-    const tab = vaultTabs.querySelector(`.summary-cell[data-pane="${pane}"]`);
-    if (!tab) return;
-    vaultTabs.querySelectorAll(".summary-cell").forEach((t) => {
-      const on = t === tab;
+    if (!pane) return;
+    document.querySelectorAll("#vaultTabs .summary-cell, #vaultTabsB .summary-cell").forEach((t) => {
+      const on = t.dataset.pane === pane;
       t.classList.toggle("active", on);
       t.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    valueBoard?.querySelectorAll(".value-card").forEach((card) => {
+      card.classList.toggle("on", card.dataset.pane === pane);
     });
     document.querySelectorAll("#demo-vault .pane").forEach((p) => {
       const on = p.dataset.pane === pane;
@@ -250,10 +254,41 @@
     });
   }
 
+  function switchScheme(scheme) {
+    if (!phone || !scheme) return;
+    phone.dataset.scheme = scheme;
+    phone.querySelectorAll(".scheme-switch [data-scheme]").forEach((btn) => {
+      const on = btn.dataset.scheme === scheme;
+      btn.classList.toggle("on", on);
+      btn.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    phone.querySelectorAll("[data-scheme-top]").forEach((el) => {
+      el.hidden = el.dataset.schemeTop !== scheme;
+    });
+  }
+
+  phone?.querySelector(".scheme-switch")?.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-scheme]");
+    if (!btn) return;
+    switchScheme(btn.dataset.scheme);
+  });
+
   vaultTabs?.addEventListener("click", (e) => {
     const tab = e.target.closest(".summary-cell[data-pane]");
     if (!tab) return;
     switchVaultPane(tab.dataset.pane);
+  });
+
+  vaultTabsB?.addEventListener("click", (e) => {
+    const tab = e.target.closest(".summary-cell[data-pane]");
+    if (!tab) return;
+    switchVaultPane(tab.dataset.pane);
+  });
+
+  valueBoard?.addEventListener("click", (e) => {
+    const card = e.target.closest(".value-card[data-pane]");
+    if (!card) return;
+    switchVaultPane(card.dataset.pane);
   });
 
 
