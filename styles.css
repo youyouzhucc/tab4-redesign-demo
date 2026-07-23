@@ -163,28 +163,27 @@ button {
   display: none !important;
 }
 
-/* 方案 B：价值感看板 */
+/* 方案 B：价值感概览，竖线分隔，无卡片框 */
 .value-board {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 12px 12px 10px;
+  align-items: stretch;
+  padding: 14px 4px 12px;
   background: #fff;
-  border-bottom: none;
   flex-shrink: 0;
 }
 
-.value-card {
+.value-side {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
-  padding: 14px 12px 12px;
-  border: 1px solid #ececec;
-  border-radius: 12px;
-  background: #fafafa;
+  padding: 2px 18px;
   text-align: left;
-  color: inherit;
+}
+
+.value-side:first-child {
+  border-right: 1px solid #ececec;
 }
 
 .value-card-head {
@@ -193,7 +192,7 @@ button {
   justify-content: space-between;
   width: 100%;
   gap: 8px;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .value-label {
