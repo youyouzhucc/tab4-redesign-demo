@@ -705,22 +705,17 @@ button {
 }
 
 .auth-post {
-  position: relative;
   display: grid;
-  grid-template-columns: 110px 1fr;
+  grid-template-columns: 110px minmax(0, 1fr) auto;
   gap: 12px;
+  align-items: stretch;
   padding: 14px 4px;
   border-bottom: 1px solid #f2f2f2;
-  cursor: pointer;
   animation: rise 0.35s ease both;
 }
 
 .auth-post:last-child {
   border-bottom: none;
-}
-
-.auth-post:active {
-  opacity: 0.85;
 }
 
 .auth-post-img {
@@ -732,22 +727,17 @@ button {
   display: block;
 }
 
-.auth-post-body {
+.auth-post-main {
   min-width: 0;
   min-height: 110px;
-  padding-right: 64px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 4px;
+  justify-content: center;
+  gap: 5px;
+  padding-right: 4px;
 }
 
-.auth-post-body .xy-actions {
-  margin-top: auto;
-  padding-top: 8px;
-}
-
-.auth-post-body h3 {
+.auth-post-main h3 {
   font-size: 13px;
   font-weight: 500;
   color: #111;
@@ -797,13 +787,19 @@ button {
   line-height: 1.35;
 }
 
+.auth-post-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 110px;
+  padding: 2px 0;
+  flex: 0 0 auto;
+}
+
 .auth-stamp {
-  position: absolute;
-  right: 6px;
-  top: 22px;
-  transform: rotate(-18deg);
-  width: 54px;
-  height: 54px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   border: 1.5px solid #bbb;
   display: grid;
@@ -811,10 +807,8 @@ button {
   pointer-events: none;
   color: #999;
   background: transparent;
-}
-
-.auth-stamp-ring {
-  display: none;
+  transform: rotate(-18deg);
+  margin-right: 2px;
 }
 
 .auth-stamp-text {
@@ -829,6 +823,18 @@ button {
 .auth-stamp.fail {
   color: #999;
   border-color: #bbb;
+}
+
+.auth-post-side .pill {
+  flex: 0 0 auto;
+  min-height: 26px;
+  height: 26px;
+  padding: 0 10px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  box-sizing: border-box;
 }
 
 .tool-menu {
