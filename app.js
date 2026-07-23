@@ -385,8 +385,18 @@
 
   function fillBargain(ctx) {
     document.getElementById("bgImg").src = ctx.img;
-    document.getElementById("bgSku").textContent = `${ctx.data.active || "A"}级 · 常穿码`;
+    document.getElementById("bgTitle").textContent = ctx.title;
+    document.getElementById("bgSku").innerHTML = `${ctx.data.active || "A"}级 · 常穿码 <span>▾</span>`;
     document.getElementById("bgListPrice").textContent = formatYen(ctx.price);
+    const gallery = document.getElementById("bgGallery");
+    if (gallery) {
+      const extras = ["assets/p-dunk.jpg", "assets/p-aj1.jpg", "assets/p-samba.jpg"]
+        .filter((src) => src !== ctx.img)
+        .slice(0, 2);
+      gallery.innerHTML = [ctx.img, ...extras]
+        .map((src) => `<img src="${src}" alt="" />`)
+        .join("") + `<div class="gallery-more">共 6 张<br>›</div>`;
+    }
     buildRuler(ctx.price);
     setOffer(Math.round(ctx.price * 0.94 / 10) * 10);
     bindRuler();

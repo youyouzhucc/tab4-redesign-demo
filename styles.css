@@ -14,7 +14,7 @@
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
   --radius-phone: 32px;
   --font: "Noto Sans SC", "DM Sans", system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --mono: var(--font);
   --display: var(--font);
   --fs-xs: 10px;
   --fs-sm: 12px;
@@ -985,7 +985,8 @@ button {
 
 .ai-bar b {
   color: var(--ink);
-  font-family: var(--mono);
+  font-family: var(--font);
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .vault-tabs {
@@ -1106,13 +1107,14 @@ button {
 }
 
 .xy-price {
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 16px;
   font-weight: 700;
   color: #111;
   line-height: 1.1;
   letter-spacing: -0.02em;
   flex: 0 0 auto;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .xy-price .yen {
@@ -1483,6 +1485,8 @@ button {
   display: block;
   font-size: 16px;
   margin-bottom: 2px;
+  font-family: var(--font);
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .deposit span {
@@ -1491,70 +1495,94 @@ button {
 }
 
 /* 还价 */
-.bargain-top {
-  display: flex;
+.bargain-product {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
   margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f2f2f2;
 }
 
-.sku-chip {
-  border: 1px solid #e5e5e5;
-  background: #fff;
+.bargain-product img {
+  width: 72px;
+  height: 72px;
   border-radius: 8px;
-  padding: 8px 10px;
-  font-size: 12px;
-  color: #333;
-}
-
-.sku-mini {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 6px 8px;
-  max-width: 48%;
-}
-
-.sku-mini img {
-  width: 36px;
-  height: 36px;
-  border-radius: 4px;
   object-fit: cover;
+  background: #f5f5f5;
 }
 
-.sku-mini p {
-  font-size: 11px;
-  color: #888;
+.bargain-product-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bargain-product-info h4 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.sku-mini strong {
-  font-size: 13px;
+.sku-chip {
+  align-self: flex-start;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #333;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sku-chip span {
+  color: #aaa;
+  font-size: 10px;
+}
+
+.bargain-list-price {
+  margin: 0;
+  font-size: 12px;
+  color: #888;
+}
+
+.bargain-list-price strong {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .bargain-gallery {
   display: flex;
   gap: 6px;
-  overflow: hidden;
-  margin-bottom: 18px;
+  overflow-x: auto;
+  margin-bottom: 16px;
+  padding-bottom: 2px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .bargain-gallery img {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   border-radius: 6px;
   object-fit: cover;
   flex: 0 0 auto;
+  background: #f5f5f5;
 }
 
 .gallery-more {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   border-radius: 6px;
   background: #f3f3f3;
   color: #888;
@@ -1562,11 +1590,19 @@ button {
   display: grid;
   place-items: center;
   flex: 0 0 auto;
+  text-align: center;
+  line-height: 1.25;
 }
 
 .bargain-price-block {
   text-align: center;
-  padding: 8px 0 4px;
+  padding: 4px 0 4px;
+}
+
+.bargain-offer-label {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
 }
 
 .bargain-price-row {
@@ -1577,8 +1613,10 @@ button {
 }
 
 .bargain-price-row strong {
+  font-family: var(--font);
   font-size: 34px;
   letter-spacing: -0.03em;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .edit-link {
@@ -1586,6 +1624,7 @@ button {
   background: none;
   font-size: 12px;
   color: #888;
+  font-family: inherit;
 }
 
 .price-ruler {
@@ -1695,16 +1734,27 @@ button {
 
 .buy-product {
   display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 10px;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+  align-items: center;
   margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f2f2f2;
 }
 
 .buy-product img {
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   border-radius: 8px;
   object-fit: cover;
+  background: #f5f5f5;
+}
+
+.buy-product-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .buy-price-row {
@@ -1712,11 +1762,12 @@ button {
   flex-wrap: wrap;
   align-items: baseline;
   gap: 8px;
-  margin-bottom: 4px;
 }
 
 .buy-price-row strong {
   font-size: 22px;
+  font-family: var(--font);
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .text-link {
@@ -1725,22 +1776,25 @@ button {
   font-size: 11px;
   color: #888;
   padding: 0;
+  font-family: inherit;
 }
 
-.buy-selected,
-.buy-title {
+.buy-selected {
   font-size: 12px;
   color: #888;
   line-height: 1.4;
+  margin: 0;
 }
 
 .buy-title {
-  margin-top: 2px;
-  color: #555;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.3;
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .buy-insight {
@@ -2112,11 +2166,12 @@ button {
 
 .grade b {
   display: block;
-  font-family: var(--mono);
+  font-family: var(--font);
   font-size: 13px;
   font-weight: 700;
   color: #222;
   margin-bottom: 2px;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .grade span {
@@ -2197,9 +2252,10 @@ button {
 }
 
 .deal-list strong {
-  font-family: var(--mono);
+  font-family: var(--font);
   color: #111;
   font-weight: 700;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .deal-list time {
