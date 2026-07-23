@@ -271,29 +271,27 @@ button {
 }
 
 .summary-bar.text-tabs .summary-label em {
+  position: relative;
+  display: inline-block;
   font-style: normal;
   font-weight: 600;
   font-variant-numeric: lining-nums tabular-nums;
   margin-left: 2px;
-  color: #888;
+  color: #999;
 }
 
 .summary-bar.text-tabs .summary-cell.active .summary-label em {
-  color: #111;
-  font-weight: 700;
+  color: #999;
+  font-weight: 600;
 }
 
-/* C/D：Tab 小红点，只提示有待办 */
-.summary-bar.text-tabs .summary-cell {
-  position: relative;
-}
-
-.tab-dot {
+/* C/D：红点贴在数字右上角（仅想要 / 还价） */
+.pane-tab-dot {
   position: absolute;
-  top: 8px;
-  right: 14%;
-  width: 6px;
-  height: 6px;
+  top: -1px;
+  right: -5px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: #e53935;
   font-style: normal;
