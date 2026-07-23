@@ -738,8 +738,13 @@ button {
   padding-right: 64px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 6px;
+  justify-content: flex-start;
+  gap: 4px;
+}
+
+.auth-post-body .xy-actions {
+  margin-top: auto;
+  padding-top: 8px;
 }
 
 .auth-post-body h3 {
@@ -795,8 +800,8 @@ button {
 .auth-stamp {
   position: absolute;
   right: 6px;
-  top: 50%;
-  transform: translateY(-50%) rotate(-18deg);
+  top: 22px;
+  transform: rotate(-18deg);
   width: 54px;
   height: 54px;
   border-radius: 50%;
