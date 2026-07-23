@@ -384,21 +384,21 @@
   }
 
   function fillBargain(ctx) {
+    const grade = `${ctx.data.active || "A"}级 · 常穿码`;
     document.getElementById("bgImg").src = ctx.img;
     document.getElementById("bgTitle").textContent = ctx.title;
-    document.getElementById("bgSku").innerHTML = `${ctx.data.active || "A"}级 · 常穿码 <span>▾</span>`;
+    document.getElementById("bgSku").innerHTML = `${grade} <span>▾</span>`;
+    document.getElementById("bgSkuLabel").textContent = grade;
     document.getElementById("bgListPrice").textContent = formatYen(ctx.price);
     const gallery = document.getElementById("bgGallery");
     if (gallery) {
-      const extras = ["assets/p-dunk.jpg", "assets/p-aj1.jpg", "assets/p-samba.jpg"]
-        .filter((src) => src !== ctx.img)
-        .slice(0, 2);
-      gallery.innerHTML = [ctx.img, ...extras]
-        .map((src) => `<img src="${src}" alt="" />`)
-        .join("") + `<div class="gallery-more">共 6 张<br>›</div>`;
+      // 同款多角度：demo 只有一张主图，复用当前商品图，避免串款
+      gallery.innerHTML =
+        `<img src="${ctx.img}" alt="" />`.repeat(3) +
+        `<div class="gallery-more">共 6 张 ›</div>`;
     }
     buildRuler(ctx.price);
-    setOffer(Math.round(ctx.price * 0.94 / 10) * 10);
+    setOffer(Math.round((ctx.price * 0.94) / 10) * 10);
     bindRuler();
   }
 
