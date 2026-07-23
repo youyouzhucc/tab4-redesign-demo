@@ -234,20 +234,7 @@
 
   const vaultTabs = document.getElementById("vaultTabs");
   const vaultTabsB = document.getElementById("vaultTabsB");
-  const paneTip = document.getElementById("paneTip");
   const phone = document.getElementById("demo-vault");
-
-  const PANE_TIPS = {
-    want: "想要 · <b>3个降价</b>，可优先处理",
-    have: "我有 · <b>2个可回血</b>，行情适合出手",
-    offer: "还价 · <b>2个待处理</b>，等待你的下一步",
-    auth: "鉴别 · <b>1个处理中</b>，完成后可查看报告",
-  };
-
-  function updatePaneTip(pane) {
-    if (!paneTip) return;
-    paneTip.innerHTML = PANE_TIPS[pane] || "";
-  }
 
   function switchVaultPane(pane) {
     if (!pane) return;
@@ -261,7 +248,6 @@
       p.hidden = !on;
       p.classList.toggle("active", on);
     });
-    updatePaneTip(pane);
   }
 
   function switchScheme(scheme) {

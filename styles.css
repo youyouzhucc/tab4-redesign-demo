@@ -283,26 +283,27 @@ button {
   font-weight: 700;
 }
 
-/* C/D：Tab 下方随当前清单联动的待办提示 */
-.pane-tip {
-  margin: 0;
-  padding: 8px 16px 10px;
-  background: #fff;
-  font-size: 12px;
-  font-weight: 500;
-  color: #666;
-  line-height: 1.35;
-  border-bottom: 1px solid #f0f0f0;
-  flex-shrink: 0;
+/* C/D：Tab 角标，只提示待办数量 */
+.summary-bar.text-tabs .summary-cell {
+  position: relative;
 }
 
-.pane-tip[hidden] {
-  display: none !important;
-}
-
-.pane-tip b {
-  color: #111;
+.tab-badge {
+  position: absolute;
+  top: 6px;
+  right: 10%;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-size: 10px;
   font-weight: 700;
+  font-style: normal;
+  line-height: 16px;
+  text-align: center;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .phone[data-scheme="c"] .list-module,
