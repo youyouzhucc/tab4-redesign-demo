@@ -234,7 +234,6 @@
 
   const vaultTabs = document.getElementById("vaultTabs");
   const vaultTabsB = document.getElementById("vaultTabsB");
-  const valueBoard = document.getElementById("valueBoard");
   const phone = document.getElementById("demo-vault");
 
   function switchVaultPane(pane) {
