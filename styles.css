@@ -13,7 +13,7 @@
   --up: #111111;
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
   --radius-phone: 32px;
-  --font: "Noto Sans SC", "DM Sans", system-ui, sans-serif;
+  --font: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
   --mono: var(--font);
   --display: var(--font);
   --fs-xs: 10px;
