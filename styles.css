@@ -262,11 +262,11 @@ button {
 }
 
 .summary-bar.text-tabs .summary-cell {
-  padding: 12px 4px 12px;
+  padding: 10px 4px 12px;
 }
 
 .summary-bar.text-tabs .summary-label {
-  margin: 0;
+  margin: 0 0 3px;
   font-size: 14px;
 }
 
@@ -281,6 +281,11 @@ button {
 .summary-bar.text-tabs .summary-cell.active .summary-label em {
   color: #111;
   font-weight: 700;
+}
+
+.summary-bar.text-tabs .summary-sub {
+  margin-top: 0;
+  font-size: 10px;
 }
 
 .phone[data-scheme="c"] .list-module,
