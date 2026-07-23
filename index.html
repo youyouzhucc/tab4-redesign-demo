@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=42" />
+  <link rel="stylesheet" href="styles.css?v=43" />
 </head>
 <body>
 <section class="phone phone-app" id="demo-vault" aria-label="好物">
@@ -374,56 +374,6 @@
           </div>
 
           <div class="pane" id="pane-auth" data-pane="auth" hidden>
-            <div class="auth-pane-head">
-              <h2 class="heiti">我的鉴别贴</h2>
-              <span>共 4 条</span>
-            </div>
-            <ul class="auth-posts">
-              <li>
-                <button type="button" class="auth-post" data-tool="auth">
-                  <img src="assets/p-dunk.jpg" alt="" />
-                  <div>
-                    <strong class="heiti">Nike Dunk Low 熊猫</strong>
-                    <p>鞋靴鉴别 · 已提交 3 张细节图</p>
-                    <em class="auth-state doing">鉴别中</em>
-                  </div>
-                  <time>今天</time>
-                </button>
-              </li>
-              <li>
-                <button type="button" class="auth-post" data-tool="auth">
-                  <img src="assets/p-aj1.jpg" alt="" />
-                  <div>
-                    <strong class="heiti">AJ1 Retro High 黑白脚趾</strong>
-                    <p>结论：支持正品倾向</p>
-                    <em class="auth-state ok">报告已出</em>
-                  </div>
-                  <time>昨天</time>
-                </button>
-              </li>
-              <li>
-                <button type="button" class="auth-post" data-tool="auth">
-                  <img src="assets/p-coach.jpg" alt="" />
-                  <div>
-                    <strong class="heiti">Coach 经典托特包</strong>
-                    <p>结论：支持正品倾向 · 可挂售</p>
-                    <em class="auth-state ok">报告已出</em>
-                  </div>
-                  <time>本周</time>
-                </button>
-              </li>
-              <li>
-                <button type="button" class="auth-post" data-tool="auth">
-                  <img src="assets/p-nb550.jpg" alt="" />
-                  <div>
-                    <strong class="heiti">New Balance 550</strong>
-                    <p>图片不清晰，需补充中底细节</p>
-                    <em class="auth-state warn">需补图</em>
-                  </div>
-                  <time>上周</time>
-                </button>
-              </li>
-            </ul>
             <section class="auth-tool-entry" aria-label="鉴别工具">
               <button class="tool-card" type="button" data-tool="auth">
                 <span class="tool-card-ico" aria-hidden="true">
@@ -439,6 +389,51 @@
                 <span class="tool-card-arrow" aria-hidden="true">›</span>
               </button>
             </section>
+            <ul class="rows">
+              <li class="row card xy-card">
+                <div class="xy-media"><img class="row-img" src="assets/p-dunk.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">Nike Dunk Low 熊猫</h3>
+                  <p class="xy-meta">鞋靴鉴别 · 已提交 3 张细节图 · <span class="status-tag warn">鉴别中</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill outline" data-tool="auth">查看进度</button>
+                    <button type="button" class="pill primary" data-tool="auth">补充图片</button>
+                  </div>
+                </div>
+              </li>
+              <li class="row card xy-card">
+                <div class="xy-media"><img class="row-img" src="assets/p-aj1.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">AJ1 Retro High 黑白脚趾</h3>
+                  <p class="xy-meta">结论：支持正品倾向 · <span class="status-tag ok">报告已出</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill outline" data-tool="auth">查看报告</button>
+                    <button type="button" class="pill primary">卖了换钱</button>
+                  </div>
+                </div>
+              </li>
+              <li class="row card xy-card">
+                <div class="xy-media"><img class="row-img" src="assets/p-coach.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">Coach 经典托特包</h3>
+                  <p class="xy-meta">结论：支持正品倾向 · <span class="status-tag ok">报告已出</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill outline" data-tool="auth">查看报告</button>
+                    <button type="button" class="pill primary">卖了换钱</button>
+                  </div>
+                </div>
+              </li>
+              <li class="row card xy-card">
+                <div class="xy-media"><img class="row-img" src="assets/p-nb550.jpg" alt="" /></div>
+                <div class="row-body">
+                  <h3 class="heiti">New Balance 550</h3>
+                  <p class="xy-meta">图片不清晰，需补充中底细节 · <span class="status-tag warn">需补图</span></p>
+                  <div class="row-actions xy-actions">
+                    <button type="button" class="pill primary" data-tool="auth">补充图片</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </main>
         </div>
@@ -557,6 +552,6 @@
           </button>
         </nav>
       </section>
-  <script src="app.js?v=42"></script>
+  <script src="app.js?v=43"></script>
 </body>
 </html>
