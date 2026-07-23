@@ -706,7 +706,7 @@ button {
 
 .auth-post {
   display: grid;
-  grid-template-columns: 110px minmax(0, 1fr) auto;
+  grid-template-columns: 110px minmax(0, 1fr);
   gap: 12px;
   align-items: stretch;
   padding: 14px 4px;
@@ -733,8 +733,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
-  padding-right: 4px;
+  gap: 6px;
 }
 
 .auth-post-main h3 {
@@ -757,6 +756,13 @@ button {
   line-height: 1.35;
 }
 
+.auth-expert-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 .auth-expert {
   display: flex;
   align-items: center;
@@ -764,6 +770,21 @@ button {
   font-size: 11px;
   color: #888;
   line-height: 1.35;
+  min-width: 0;
+  margin: 0;
+}
+
+.auth-expert-row .pill {
+  flex: 0 0 auto;
+  align-self: flex-end;
+  min-height: 26px;
+  height: 26px;
+  padding: 0 10px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  box-sizing: border-box;
 }
 
 .auth-avatar {
@@ -780,39 +801,26 @@ button {
   flex: 0 0 auto;
 }
 
-.auth-time {
-  font-size: 11px;
-  font-weight: 400;
-  color: #aaa;
-  line-height: 1.35;
-}
-
-.auth-post-side {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  min-height: 110px;
-  padding: 2px 0;
-  flex: 0 0 auto;
+.auth-stamp-line {
+  margin: 0;
+  line-height: 1;
 }
 
 .auth-stamp {
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1.5px solid #bbb;
-  display: grid;
+  display: inline-grid;
   place-items: center;
   pointer-events: none;
   color: #999;
   background: transparent;
   transform: rotate(-18deg);
-  margin-right: 2px;
 }
 
 .auth-stamp-text {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 600;
   letter-spacing: 0.02em;
   white-space: nowrap;
@@ -825,16 +833,9 @@ button {
   border-color: #bbb;
 }
 
-.auth-post-side .pill {
-  flex: 0 0 auto;
-  min-height: 26px;
-  height: 26px;
-  padding: 0 10px;
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  border-radius: 999px;
-  letter-spacing: 0.01em;
-  box-sizing: border-box;
+.auth-stamp.mini {
+  width: 48px;
+  height: 48px;
 }
 
 .tool-menu {

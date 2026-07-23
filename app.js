@@ -486,6 +486,19 @@
 
     if (inFlow) return;
 
+    const alertBtn = e.target.closest("[data-action='alert']");
+    if (alertBtn) {
+      e.preventDefault();
+      const old = alertBtn.textContent;
+      alertBtn.textContent = "已设置";
+      alertBtn.disabled = true;
+      setTimeout(() => {
+        alertBtn.textContent = old;
+        alertBtn.disabled = false;
+      }, 1200);
+      return;
+    }
+
     const trendBtn = e.target.closest("button.trend[data-market]");
     if (trendBtn) {
       e.preventDefault();
