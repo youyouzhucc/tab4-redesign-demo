@@ -262,11 +262,11 @@ button {
 }
 
 .summary-bar.text-tabs .summary-cell {
-  padding: 10px 4px 12px;
+  padding: 12px 4px 12px;
 }
 
 .summary-bar.text-tabs .summary-label {
-  margin: 0 0 3px;
+  margin: 0;
   font-size: 14px;
 }
 
@@ -283,9 +283,26 @@ button {
   font-weight: 700;
 }
 
-.summary-bar.text-tabs .summary-sub {
-  margin-top: 0;
-  font-size: 10px;
+/* C/D：Tab 下方随当前清单联动的待办提示 */
+.pane-tip {
+  margin: 0;
+  padding: 8px 16px 10px;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+  line-height: 1.35;
+  border-bottom: 1px solid #f0f0f0;
+  flex-shrink: 0;
+}
+
+.pane-tip[hidden] {
+  display: none !important;
+}
+
+.pane-tip b {
+  color: #111;
+  font-weight: 700;
 }
 
 .phone[data-scheme="c"] .list-module,
