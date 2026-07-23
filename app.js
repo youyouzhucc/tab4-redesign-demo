@@ -244,9 +244,6 @@
       t.classList.toggle("active", on);
       t.setAttribute("aria-selected", on ? "true" : "false");
     });
-    valueBoard?.querySelectorAll(".value-card").forEach((card) => {
-      card.classList.toggle("on", card.dataset.pane === pane);
-    });
     document.querySelectorAll("#demo-vault .pane").forEach((p) => {
       const on = p.dataset.pane === pane;
       p.hidden = !on;
@@ -283,12 +280,6 @@
     const tab = e.target.closest(".summary-cell[data-pane]");
     if (!tab) return;
     switchVaultPane(tab.dataset.pane);
-  });
-
-  valueBoard?.addEventListener("click", (e) => {
-    const card = e.target.closest(".value-card[data-pane]");
-    if (!card) return;
-    switchVaultPane(card.dataset.pane);
   });
 
 

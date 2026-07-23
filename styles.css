@@ -178,26 +178,13 @@ button {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  gap: 4px;
   padding: 14px 12px 12px;
   border: 1px solid #ececec;
   border-radius: 12px;
   background: #fafafa;
   text-align: left;
-  font-family: inherit;
   color: inherit;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.value-card:active {
-  opacity: 0.85;
-}
-
-.value-card.on {
-  background: #111;
-  border-color: #111;
-  color: #fff;
 }
 
 .value-card-head {
@@ -206,11 +193,13 @@ button {
   justify-content: space-between;
   width: 100%;
   gap: 8px;
+  margin-bottom: 4px;
 }
 
 .value-label {
   font-size: 13px;
   font-weight: 700;
+  color: #111;
 }
 
 .value-count {
@@ -219,8 +208,10 @@ button {
   color: #888;
 }
 
-.value-card.on .value-count {
-  color: rgba(255, 255, 255, 0.65);
+.value-amount-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #999;
 }
 
 .value-amount {
@@ -229,11 +220,13 @@ button {
   letter-spacing: -0.03em;
   line-height: 1.1;
   font-variant-numeric: lining-nums tabular-nums;
+  color: #111;
 }
 
 .value-delta {
   font-size: 11px;
   font-weight: 600;
+  margin-top: 2px;
 }
 
 .value-delta.down {
@@ -242,10 +235,6 @@ button {
 
 .value-delta.up {
   color: #333;
-}
-
-.value-card.on .value-delta {
-  color: rgba(255, 255, 255, 0.75);
 }
 
 .summary-bar.text-tabs {
