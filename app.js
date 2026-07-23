@@ -1,23 +1,8 @@
 (() => {
-  const TOOLS = {
-    auth: {
-      title: "鉴别真假",
-      desc: "拍照上传关键部位，快速判断正品风险，结果可回流到「我有」或直接挂售。",
-      steps: ["选择品类与品牌", "按指引拍摄细节图", "获取鉴别结论与建议"],
-      cta: "开始鉴别",
-    },
-    price: {
-      title: "AI估价",
-      desc: "结合成色、瑕疵与近期成交，给出市场参考价，辅助买卖决策。",
-      steps: ["拍摄或选择商品", "确认成色与配件", "查看估价与行情区间"],
-      cta: "开始估价",
-    },
-  };
-
   const MARKETS = {
     aj1low: {
       title: "Air Jordan 1 Low 绿白",
-      img: "assets/p-aj1low.png",
+      img: "assets/p-aj1low.jpg",
       hot: "HOT 328人想要 · 近7日 46人买过",
       retail: "¥1299",
       brand: "Jordan",
@@ -40,7 +25,7 @@
     },
     scarf: {
       title: "Acne Studios 窄版围巾",
-      img: "assets/p-scarf.png",
+      img: "assets/p-scarf.jpg",
       hot: "HOT 86人想要 · 近7日 12人买过",
       retail: "¥2100",
       brand: "Acne",
@@ -63,7 +48,7 @@
     },
     gshock: {
       title: "Casio G-Shock GA-2100",
-      img: "assets/p-gshock.png",
+      img: "assets/p-gshock.jpg",
       hot: "156人想要 · 近7日 23人买过",
       retail: "¥999",
       brand: "Casio",
@@ -86,7 +71,7 @@
     },
     aj1: {
       title: "AJ1 Retro High 黑白",
-      img: "assets/p-aj1.png",
+      img: "assets/p-aj1.jpg",
       hot: "HOT 545人想要 · 近7日 61人买过",
       retail: "¥1399",
       brand: "Jordan",
@@ -109,7 +94,7 @@
     },
     coach: {
       title: "Coach 托特包",
-      img: "assets/p-coach.png",
+      img: "assets/p-coach.jpg",
       hot: "HOT 212人想要 · 近7日 18人买过",
       retail: "¥3900",
       brand: "Coach",
@@ -132,7 +117,7 @@
     },
     nb550: {
       title: "New Balance 550",
-      img: "assets/p-nb550.png",
+      img: "assets/p-nb550.jpg",
       hot: "1.1万件成交 · 近7日 89人买过",
       retail: "¥899",
       brand: "NB",
@@ -155,7 +140,7 @@
     },
     samba: {
       title: "adidas Samba OG",
-      img: "assets/p-samba.png",
+      img: "assets/p-samba.jpg",
       hot: "96人想要 · 近7日成交走弱",
       retail: "¥899",
       brand: "adidas",
@@ -178,7 +163,7 @@
     },
     dunk: {
       title: "Nike Dunk Low 熊猫",
-      img: "assets/p-dunk.png",
+      img: "assets/p-dunk.jpg",
       hot: "HOT 890人想要 · 近7日 72人买过",
       retail: "¥799",
       brand: "Nike",
@@ -201,7 +186,7 @@
     },
     af1: {
       title: "Nike Air Force 1 LE 纯白",
-      img: "assets/p-af1.png",
+      img: "assets/p-af1.jpg",
       hot: "HOT 1.2万人想要",
       retail: "¥749",
       brand: "Nike",
@@ -224,7 +209,7 @@
     },
     hoodie: {
       title: "Essentials 基础卫衣",
-      img: "assets/p-hoodie.png",
+      img: "assets/p-hoodie.jpg",
       hot: "64人想要 · 仅一件在售",
       retail: "¥690",
       brand: "Fear of God",
@@ -271,101 +256,299 @@
     switchVaultPane(tab.dataset.pane);
   });
 
-  // Tool sheet
-  const sheet = document.getElementById("toolSheet");
-  const sheetTitle = document.getElementById("sheetTitle");
-  const sheetDesc = document.getElementById("sheetDesc");
-  const sheetSteps = document.getElementById("sheetSteps");
-  const sheetCta = document.getElementById("sheetCta");
 
-  function openTool(key) {
-    const tool = TOOLS[key];
-    if (!tool || !sheet) return;
-    sheetTitle.textContent = tool.title;
-    sheetDesc.textContent = tool.desc;
-    sheetSteps.innerHTML = tool.steps
-      .map((s, i) => `<div class="sheet-step"><i>${i + 1}</i><span>${s}</span></div>`)
-      .join("");
-    sheetCta.textContent = tool.cta;
-    sheet.hidden = false;
-  }
-
-  function closeSheet() {
-    if (sheet) sheet.hidden = true;
-  }
-
-  // Market detail page
-  const marketPage = document.getElementById("marketPage");
+  // Flow sheets: bargain / buy / auth / market / report
+  const flowSheet = document.getElementById("flowSheet");
+  const flowViews = {
+    bargain: document.getElementById("flow-bargain"),
+    buy: document.getElementById("flow-buy"),
+    auth: document.getElementById("flow-auth"),
+    market: document.getElementById("flow-market"),
+    report: document.getElementById("flow-report"),
+  };
   const gradeTabs = document.getElementById("gradeTabs");
+  let flowContext = { key: "aj1low", title: "", img: "", price: 812 };
+  let offerPrice = 760;
+  let selectedCat = "";
 
-  function openMarket(key) {
-    const data = MARKETS[key] || MARKETS.aj1low;
-    document.getElementById("mImg").src = data.img;
-    document.getElementById("mTitle").textContent = data.title;
-    document.getElementById("mHot").innerHTML = data.hot.replace(
-      /^HOT\s*/,
-      '<b>HOT</b> '
-    );
+  function parsePrice(text) {
+    const n = Number(String(text || "").replace(/[^\d.]/g, ""));
+    return Number.isFinite(n) ? Math.round(n) : 0;
+  }
+
+  function formatYen(n) {
+    return `¥${Number(n).toLocaleString("zh-CN")}`;
+  }
+
+  function cardContext(el) {
+    const card = el?.closest?.(".xy-card, .auth-post, .row");
+    const marketKey =
+      el?.dataset?.market ||
+      card?.dataset?.market ||
+      el?.closest?.("[data-market]")?.dataset?.market ||
+      "aj1low";
+    const data = MARKETS[marketKey] || MARKETS.aj1low;
+    const img =
+      card?.querySelector?.(".row-img, .auth-post-img")?.getAttribute("src") ||
+      data.img;
+    const title =
+      card?.querySelector?.("h3")?.textContent?.trim() || data.title;
+    const priceText =
+      card?.querySelector?.(".xy-price")?.textContent ||
+      data.grades?.find((g) => g.g === data.active)?.price ||
+      data.retail;
+    return {
+      key: marketKey,
+      title,
+      img,
+      price: parsePrice(priceText) || parsePrice(data.retail) || 800,
+      data,
+    };
+  }
+
+  function showFlowView(name) {
+    Object.entries(flowViews).forEach(([key, view]) => {
+      if (!view) return;
+      view.hidden = key !== name;
+    });
+  }
+
+  function closeFlow() {
+    if (flowSheet) flowSheet.hidden = true;
+    selectedCat = "";
+    document.querySelectorAll(".cat-cell.on").forEach((c) => c.classList.remove("on"));
+    const authCta = document.getElementById("authCta");
+    if (authCta) {
+      authCta.disabled = true;
+      authCta.textContent = "请先选择品类";
+    }
+  }
+
+  function buildRuler(listPrice) {
+    const marks = document.getElementById("rulerMarks");
+    if (!marks) return;
+    const min = Math.max(100, Math.round(listPrice * 0.75 / 10) * 10);
+    const max = Math.round(listPrice * 1.1 / 10) * 10;
+    const step = 10;
+    const count = Math.floor((max - min) / step) + 1;
+    marks.innerHTML = Array.from({ length: count }, (_, i) => {
+      const v = min + i * step;
+      const major = v % 100 === 0;
+      return `<span class="${major ? "major" : ""}" data-v="${v}">${major ? v : ""}</span>`;
+    }).join("");
+    marks.dataset.min = String(min);
+    marks.dataset.max = String(max);
+    marks.dataset.step = String(step);
+  }
+
+  function setOffer(price) {
+    const marks = document.getElementById("rulerMarks");
+    if (!marks) return;
+    const min = Number(marks.dataset.min);
+    const max = Number(marks.dataset.max);
+    offerPrice = Math.min(max, Math.max(min, Math.round(price / 10) * 10));
+    document.getElementById("bgOffer").textContent = formatYen(offerPrice);
+    const tip = document.getElementById("bgTip");
+    const list = flowContext.price;
+    if (offerPrice >= list * 0.95) tip.textContent = "出价接近挂价，成交概率更高";
+    else if (offerPrice >= list * 0.88) tip.textContent = "出价竞争力较强，将优先发送卖家";
+    else tip.textContent = "出价偏低，卖家可能需要更久决策";
+  }
+
+  function bindRuler() {
+    const ruler = document.getElementById("priceRuler");
+    const marks = document.getElementById("rulerMarks");
+    if (!ruler || !marks || ruler.dataset.bound) return;
+    ruler.dataset.bound = "1";
+
+    const pick = (clientX) => {
+      const rect = ruler.getBoundingClientRect();
+      const ratio = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
+      const min = Number(marks.dataset.min);
+      const max = Number(marks.dataset.max);
+      setOffer(min + (max - min) * ratio);
+    };
+
+    let dragging = false;
+    ruler.addEventListener("pointerdown", (e) => {
+      dragging = true;
+      ruler.setPointerCapture(e.pointerId);
+      pick(e.clientX);
+    });
+    ruler.addEventListener("pointermove", (e) => {
+      if (!dragging) return;
+      pick(e.clientX);
+    });
+    ruler.addEventListener("pointerup", () => { dragging = false; });
+    ruler.addEventListener("pointercancel", () => { dragging = false; });
+  }
+
+  function fillBargain(ctx) {
+    document.getElementById("bgImg").src = ctx.img;
+    document.getElementById("bgSku").textContent = `${ctx.data.active || "A"}级 · 常穿码`;
+    document.getElementById("bgListPrice").textContent = formatYen(ctx.price);
+    buildRuler(ctx.price);
+    setOffer(Math.round(ctx.price * 0.94 / 10) * 10);
+    bindRuler();
+  }
+
+  function fillBuy(ctx) {
+    document.getElementById("buyImg").src = ctx.img;
+    document.getElementById("buyTitle").textContent = ctx.title;
+    document.getElementById("buyPrice").textContent = formatYen(ctx.price);
+    document.getElementById("buyPay").textContent = formatYen(ctx.price);
+    document.getElementById("buySelected").textContent = `已选：常穿码 · ${ctx.data.active || "A"}级`;
+    document.getElementById("buyDaily").textContent = formatYen((ctx.price / 154).toFixed(2));
+  }
+
+  function fillMarket(ctx) {
+    const data = ctx.data;
+    document.getElementById("mImg").src = ctx.img || data.img;
+    document.getElementById("mTitle").textContent = ctx.title || data.title;
+    document.getElementById("mHot").textContent = (data.hot || "").replace(/^HOT\s*/, "") || "近 7 日成交走势";
     document.getElementById("mRetail").textContent = data.retail;
     document.getElementById("mBrand").textContent = data.brand;
     document.getElementById("mSku").textContent = data.sku;
     document.getElementById("gradeTip").textContent = data.tip;
     document.getElementById("mRelate").textContent = data.relate;
-    document.getElementById("marketCta").textContent = data.cta;
-
+    document.getElementById("marketCta").textContent = data.cta === "去挂售" ? "去挂售" : "立即购买";
     gradeTabs.innerHTML = data.grades
       .map(
         (g) =>
           `<button type="button" class="grade${g.g === data.active ? " on" : ""}" data-grade="${g.g}"><em>${g.g}</em><b>${g.price}</b><span>${g.desc}</span></button>`
       )
       .join("");
-
     document.getElementById("dealList").innerHTML = data.deals
-      .map(
-        ([a, b, c]) =>
-          `<li><span>${a}</span><strong>${b}</strong><time>${c}</time></li>`
-      )
+      .map(([a, b, c]) => `<li><span>${a}</span><strong>${b}</strong><time>${c}</time></li>`)
       .join("");
-
-    marketPage.hidden = false;
   }
 
-  function closeMarket() {
-    marketPage.hidden = true;
+  function fillReport(ctx) {
+    document.getElementById("rpImg").src = ctx.img;
+    document.getElementById("rpTitle").textContent = ctx.title;
+    const resultText = ctx.cardResult || "结果：鉴别通过";
+    document.getElementById("rpResult").textContent = resultText;
+    const stamp = document.querySelector("#flow-report .auth-stamp");
+    if (stamp) {
+      const isFail = resultText.includes("不通过");
+      stamp.classList.toggle("fail", isFail);
+      stamp.classList.toggle("pass", !isFail);
+      stamp.querySelector(".auth-stamp-text").textContent = isFail ? "鉴别不通过" : "鉴别通过";
+    }
+  }
+
+  function openFlow(name, el) {
+    if (!flowSheet || !flowViews[name]) return;
+    const fromCard = el?.closest?.(".xy-card, .auth-post, .row");
+    const ctx =
+      fromCard || !flowContext?.key ? cardContext(el) : { ...flowContext };
+    const post = el?.closest?.(".auth-post");
+    if (post) {
+      ctx.cardResult = post.querySelector(".auth-result")?.textContent?.trim() || "";
+    }
+    flowContext = ctx;
+    if (name === "bargain") fillBargain(ctx);
+    if (name === "buy") fillBuy(ctx);
+    if (name === "market") fillMarket(ctx);
+    if (name === "report") fillReport(ctx);
+    if (name === "auth") {
+      selectedCat = "";
+      document.querySelectorAll(".cat-cell.on").forEach((c) => c.classList.remove("on"));
+      const authCta = document.getElementById("authCta");
+      authCta.disabled = true;
+      authCta.textContent = "请先选择品类";
+    }
+    showFlowView(name);
+    flowSheet.hidden = false;
   }
 
   document.getElementById("demo-vault")?.addEventListener("click", (e) => {
-    const trendBtn = e.target.closest("button.trend[data-market]");
-    if (trendBtn) {
-      e.preventDefault();
-      openMarket(trendBtn.dataset.market);
+    const inFlow = e.target.closest("#flowSheet");
+
+    // inside sheet: category pick
+    const cat = e.target.closest(".cat-cell");
+    if (cat && inFlow) {
+      document.querySelectorAll(".cat-cell").forEach((c) => c.classList.toggle("on", c === cat));
+      selectedCat = cat.dataset.cat;
+      const authCta = document.getElementById("authCta");
+      authCta.disabled = false;
+      authCta.textContent = `拍摄${selectedCat}细节图`;
       return;
     }
 
-    const toolBtn = e.target.closest("[data-tool]");
-    if (!toolBtn) return;
+    // nested flow switches from sheet footers/links
+    const nested = e.target.closest("#flowSheet [data-flow]");
+    if (nested) {
+      e.preventDefault();
+      openFlow(nested.dataset.flow, nested);
+      return;
+    }
 
-    openTool(toolBtn.dataset.tool);
+    if (inFlow) return;
+
+    const trendBtn = e.target.closest("button.trend[data-market]");
+    if (trendBtn) {
+      e.preventDefault();
+      openFlow("market", trendBtn);
+      return;
+    }
+
+    const flowBtn = e.target.closest("[data-flow]");
+    if (flowBtn) {
+      e.preventDefault();
+      openFlow(flowBtn.dataset.flow, flowBtn);
+    }
   });
 
   gradeTabs?.addEventListener("click", (e) => {
     const btn = e.target.closest(".grade");
     if (!btn) return;
     gradeTabs.querySelectorAll(".grade").forEach((g) => g.classList.toggle("on", g === btn));
+    const price = parsePrice(btn.querySelector("b")?.textContent);
+    if (price) flowContext.price = price;
   });
 
-  document.getElementById("marketBack")?.addEventListener("click", closeMarket);
-  document.getElementById("sheetClose")?.addEventListener("click", closeSheet);
-  sheetCta?.addEventListener("click", () => {
-    const label = sheetCta.textContent;
-    sheetCta.textContent = "已进入流程…";
+  document.getElementById("flowClose")?.addEventListener("click", closeFlow);
+  document.getElementById("flowBackdrop")?.addEventListener("click", closeFlow);
+  document.getElementById("rpCta")?.addEventListener("click", closeFlow);
+
+  document.getElementById("bgCta")?.addEventListener("click", () => {
+    const btn = document.getElementById("bgCta");
+    btn.textContent = "已提交还价";
     setTimeout(() => {
-      sheetCta.textContent = label;
-      closeSheet();
+      btn.textContent = "还价并支付保证金";
+      closeFlow();
     }, 700);
   });
 
-  document.getElementById("addItemBtn")?.addEventListener("click", () => openTool("auth"));
+  document.getElementById("buyCta")?.addEventListener("click", () => {
+    const btn = document.getElementById("buyCta");
+    const old = btn.innerHTML;
+    btn.textContent = "支付处理中…";
+    setTimeout(() => {
+      btn.innerHTML = old;
+      closeFlow();
+    }, 700);
+  });
+
+  document.getElementById("authCta")?.addEventListener("click", () => {
+    const btn = document.getElementById("authCta");
+    if (btn.disabled) return;
+    btn.textContent = "已打开相机…";
+    setTimeout(() => {
+      btn.textContent = selectedCat ? `拍摄${selectedCat}细节图` : "请先选择品类";
+      closeFlow();
+    }, 700);
+  });
+
+  document.getElementById("bgEdit")?.addEventListener("click", () => {
+    const next = window.prompt("输入还价金额", String(offerPrice));
+    if (next == null) return;
+    const n = parsePrice(next);
+    if (n) setOffer(n);
+  });
+
+  document.getElementById("addItemBtn")?.addEventListener("click", () => openFlow("auth", document.getElementById("addItemBtn")));
 
   document.querySelectorAll(".rec-add").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -373,4 +556,5 @@
       btn.disabled = true;
     });
   });
+
 })();

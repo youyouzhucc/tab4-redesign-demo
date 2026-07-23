@@ -1285,11 +1285,11 @@ button {
   font-weight: 500;
 }
 
-/* Tool sheet */
+/* Flow bottom sheets */
 .sheet {
   position: absolute;
   inset: 0;
-  z-index: 20;
+  z-index: 40;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1302,93 +1302,667 @@ button {
 .sheet-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(10, 20, 16, 0.35);
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
   animation: fadeIn 0.2s ease both;
 }
 
-.sheet-panel {
+.flow-panel {
   position: relative;
   z-index: 1;
   background: #fff;
-  border-radius: 20px 20px 0 0;
-  padding: 10px 18px 22px;
+  border-radius: 16px 16px 0 0;
+  max-height: 88%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
   animation: sheetUp 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  overflow: hidden;
 }
 
-.sheet-handle {
-  width: 36px;
-  height: 4px;
-  border-radius: 999px;
-  background: rgba(18, 32, 26, 0.12);
-  margin: 0 auto 14px;
+.flow-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 3;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  line-height: 1;
+  color: #999;
 }
 
-.sheet-panel h3 {
-  font-size: 18px;
+.flow-view {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  max-height: 100%;
+}
+
+.flow-view[hidden] {
+  display: none !important;
+}
+
+.flow-head {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 44px 10px 16px;
+  flex: 0 0 auto;
+}
+
+.flow-head.center {
+  display: block;
+  text-align: center;
+  padding-right: 44px;
+}
+
+.flow-head.buy-head {
+  display: block;
+  padding: 16px 44px 8px 16px;
+}
+
+.flow-head h3 {
+  font-size: 16px;
   font-weight: 700;
-  margin-bottom: 6px;
+  text-align: center;
+  margin: 0;
 }
 
-.sheet-desc {
+.flow-head.center h3 {
+  margin-bottom: 4px;
+}
+
+.flow-sub {
+  font-size: 12px;
+  color: #888;
+}
+
+.flow-sub em {
+  color: #c45c3e;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.flow-link {
+  justify-self: start;
+  border: none;
+  background: none;
+  font-size: 12px;
+  color: #666;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.flow-link i,
+.deposit i {
+  display: inline-grid;
+  place-items: center;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #bbb;
+  font-size: 9px;
+  font-style: normal;
+  color: #999;
+}
+
+.flow-head-spacer { width: 1px; }
+
+.flow-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 16px 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.flow-foot {
+  flex: 0 0 auto;
+  border-top: 1px solid #f0f0f0;
+  padding: 8px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: #fff;
+}
+
+.flow-foot.single {
+  padding-top: 12px;
+}
+
+.pay-switch {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.flow-foot-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flow-cta {
+  border: none;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 8px;
+  background: var(--green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.flow-cta:disabled {
+  opacity: 0.4;
+}
+
+.flow-cta.ghost {
+  background: #fff;
+  color: #222;
+  border: 1px solid #ddd;
+}
+
+.flow-cta.wide {
+  flex: 1;
+}
+
+.deposit {
+  flex: 1;
+  min-width: 0;
+}
+
+.deposit strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.deposit span {
+  font-size: 11px;
+  color: #999;
+}
+
+/* 还价 */
+.bargain-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.sku-chip {
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: #333;
+}
+
+.sku-mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 6px 8px;
+  max-width: 48%;
+}
+
+.sku-mini img {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.sku-mini p {
+  font-size: 11px;
+  color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sku-mini strong {
   font-size: 13px;
-  color: var(--muted);
-  line-height: 1.5;
+}
+
+.bargain-gallery {
+  display: flex;
+  gap: 6px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.bargain-gallery img {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.gallery-more {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  background: #f3f3f3;
+  color: #888;
+  font-size: 11px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.bargain-price-block {
+  text-align: center;
+  padding: 8px 0 4px;
+}
+
+.bargain-price-row {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
   margin-bottom: 14px;
 }
 
-.sheet-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 16px;
+.bargain-price-row strong {
+  font-size: 34px;
+  letter-spacing: -0.03em;
 }
 
-.sheet-step {
+.edit-link {
+  border: none;
+  background: none;
+  font-size: 12px;
+  color: #888;
+}
+
+.price-ruler {
+  position: relative;
+  height: 56px;
+  margin: 0 -8px 10px;
+  overflow: hidden;
+  touch-action: none;
+  cursor: grab;
+}
+
+.ruler-track {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.ruler-marks {
   display: flex;
-  gap: 10px;
-  align-items: flex-start;
+  align-items: flex-end;
+  height: 40px;
+  gap: 0;
+  user-select: none;
+}
+
+.ruler-marks span {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 10px;
+  color: #bbb;
+  gap: 4px;
+}
+
+.ruler-marks span::before {
+  content: "";
+  width: 1px;
+  height: 10px;
+  background: #ddd;
+}
+
+.ruler-marks span.major {
+  color: #888;
+  font-weight: 600;
+}
+
+.ruler-marks span.major::before {
+  height: 16px;
+  background: #bbb;
+}
+
+.ruler-needle {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 8px;
+  width: 2px;
+  background: #222;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.ruler-needle::before,
+.ruler-needle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #222;
+  transform: translateX(-50%);
+}
+
+.ruler-needle::before { top: -2px; }
+.ruler-needle::after { bottom: -2px; }
+
+.bargain-tip {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 购买 */
+.addr-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  border: none;
+  background: none;
+  text-align: left;
   font-size: 13px;
-  color: var(--ink-soft);
+  color: #222;
+  font-family: inherit;
+}
+
+.addr-pin {
+  color: #888;
+}
+
+.addr-line .chev {
+  margin-left: auto;
+  color: #ccc;
+}
+
+.buy-product {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.buy-product img {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.buy-price-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.buy-price-row strong {
+  font-size: 22px;
+}
+
+.text-link {
+  border: none;
+  background: none;
+  font-size: 11px;
+  color: #888;
+  padding: 0;
+}
+
+.buy-selected,
+.buy-title {
+  font-size: 12px;
+  color: #888;
   line-height: 1.4;
 }
 
-.sheet-step i {
+.buy-title {
+  margin-top: 2px;
+  color: #555;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.buy-insight {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border: 1px solid #e8eef5;
+  background: #f7faff;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: #445;
+  line-height: 1.45;
+}
+
+.insight-mark {
   flex: 0 0 auto;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
+  border: 1px solid #9ab;
+  color: #678;
+  font-size: 10px;
+  font-weight: 700;
   display: grid;
   place-items: center;
-  font-style: normal;
+  margin-top: 1px;
+}
+
+.buy-agree {
+  margin-bottom: 12px;
   font-size: 11px;
-  font-weight: 700;
-  background: var(--green-soft);
-  color: var(--green-deep);
+  color: #666;
+  line-height: 1.45;
 }
 
-.sheet-cta {
+.buy-agree label {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.buy-agree input {
+  margin-top: 2px;
+}
+
+.auth-mini-card {
+  position: relative;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.auth-mini-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.auth-mini-top strong {
+  font-size: 22px;
+  margin-right: 6px;
+}
+
+.auth-mini-top span {
+  font-size: 12px;
+  color: #555;
+}
+
+.auth-stamp.mini {
+  position: static;
+  width: 48px;
+  height: 48px;
+  transform: rotate(-18deg);
+  flex: 0 0 auto;
+}
+
+.auth-mini-service {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.auth-mini-photos {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.auth-mini-photos img {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.report-link {
+  display: block;
   width: 100%;
-  padding: 13px;
-  border-radius: 999px;
-  background: var(--green);
-  color: #ffffff;
-  font-size: var(--fs-base);
-  font-weight: 700;
+  border: none;
+  background: none;
+  text-align: right;
+  font-size: 11px;
+  color: #888;
 }
 
-/* 查行情详情 */
-.market-page {
-  position: absolute;
-  inset: 0;
-  z-index: 30;
-  background: #f5f5f5;
+.buy-foot .want-side {
+  width: 44px;
+  border: none;
+  background: none;
   display: flex;
   flex-direction: column;
-  animation: phoneIn 0.28s ease both;
+  align-items: center;
+  gap: 2px;
+  font-size: 16px;
+  color: #444;
 }
 
-.market-page[hidden] {
-  display: none;
+.want-side small {
+  font-size: 10px;
+}
+
+.market-foot .flow-cta {
+  flex: 1;
+}
+
+/* 鉴别品类 */
+.cat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding-bottom: 8px;
+}
+
+.cat-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+  font-family: inherit;
+  text-align: left;
+}
+
+.cat-cell i {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1.5px solid #222;
+  flex: 0 0 auto;
+}
+
+.cat-cell.on {
+  border-color: #222;
+  background: #f7f7f7;
+}
+
+/* 报告 */
+.report-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+  padding: 8px 56px 16px 0;
+  border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 14px;
+}
+
+.report-hero img {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.report-hero h4 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.report-hero .auth-stamp {
+  position: absolute;
+  right: 0;
+  top: 8px;
+}
+
+.report-block {
+  margin-bottom: 16px;
+}
+
+.report-block h5 {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.report-block p {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* 行情浮层内容（复用原 market 样式） */
+.market-head.compact {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 10px;
+  padding: 4px 0 12px;
+  background: transparent;
+}
+
+.market-head.compact .market-thumb {
+  width: 72px;
+  height: 72px;
 }
 
 .market-top {
