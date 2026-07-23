@@ -283,27 +283,20 @@ button {
   font-weight: 700;
 }
 
-/* C/D：Tab 角标，只提示待办数量 */
+/* C/D：Tab 小红点，只提示有待办 */
 .summary-bar.text-tabs .summary-cell {
   position: relative;
 }
 
-.tab-badge {
+.tab-dot {
   position: absolute;
-  top: 6px;
-  right: 10%;
-  min-width: 16px;
-  height: 16px;
-  padding: 0 4px;
-  border-radius: 999px;
-  background: #111;
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
+  top: 8px;
+  right: 14%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e53935;
   font-style: normal;
-  line-height: 16px;
-  text-align: center;
-  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .phone[data-scheme="c"] .list-module,
