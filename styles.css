@@ -1933,11 +1933,27 @@ button {
   border-radius: 6px;
   border: 1.5px solid #222;
   flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
 }
 
 .cat-cell.on {
   border-color: #222;
   background: #f7f7f7;
+}
+
+.cat-cell.on i {
+  background: #222;
+  border-color: #222;
+  color: #fff;
+}
+
+.cat-cell.on i::after {
+  content: "✓";
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 /* 报告 */
