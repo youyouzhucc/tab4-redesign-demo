@@ -267,22 +267,24 @@ button {
 
 .summary-bar.text-tabs .summary-label {
   margin: 0;
+  margin-bottom: 0;
   font-size: 14px;
+  color: #111;
 }
 
 .summary-bar.text-tabs .summary-label em {
   position: relative;
   display: inline-block;
   font-style: normal;
-  font-weight: 600;
+  font-weight: inherit;
   font-variant-numeric: lining-nums tabular-nums;
   margin-left: 2px;
-  color: #999;
+  color: inherit;
 }
 
 .summary-bar.text-tabs .summary-cell.active .summary-label em {
-  color: #999;
-  font-weight: 600;
+  color: inherit;
+  font-weight: inherit;
 }
 
 /* C/D：红点贴在数字右上角（仅想要 / 还价） */
