@@ -9,21 +9,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=67" />
+  <link rel="stylesheet" href="styles.css?v=68" />
 </head>
 <body>
 <section class="phone phone-app" id="demo-vault" aria-label="好物" data-scheme="a">
         <header class="page-head">
           <h1 class="page-title heiti">好物</h1>
-          <div class="scheme-switch cols-2" role="tablist" aria-label="方案切换">
-            <button type="button" class="on" data-scheme="a" aria-selected="true">方案 A · 清单</button>
-            <button type="button" data-scheme="b" aria-selected="false">方案 B · 价值</button>
+          <div class="scheme-switch cols-4" role="tablist" aria-label="方案切换">
+            <button type="button" class="on" data-scheme="a" aria-selected="true">A 清单</button>
+            <button type="button" data-scheme="b" aria-selected="false">B 价值</button>
+            <button type="button" data-scheme="c" aria-selected="false">C 清单</button>
+            <button type="button" data-scheme="d" aria-selected="false">D 价值</button>
           </div>
+          <p class="scheme-hint">C/D = A/B 去鉴别 Tab</p>
         </header>
 
         <div class="list-module">
-          <!-- 方案 A：四态清单数字 Tab -->
-          <section class="summary-bar cols-4 scheme-top" id="vaultTabs" data-scheme-top="a" role="tablist" aria-label="清单">
+          <!-- A/C：清单数字 Tab -->
+          <section class="summary-bar cols-4 scheme-top" id="vaultTabs" data-scheme-top="list" role="tablist" aria-label="清单">
             <button type="button" class="summary-cell active" data-pane="want" role="tab" aria-selected="true">
               <span class="summary-label">想要</span>
               <strong class="summary-value heiti" id="wantCount">10</strong>
@@ -39,15 +42,15 @@
               <strong class="summary-value heiti">6</strong>
               <span class="summary-sub warn">2待处理</span>
             </button>
-            <button type="button" class="summary-cell" data-pane="auth" role="tab" aria-selected="false">
+            <button type="button" class="summary-cell auth-tab" data-pane="auth" role="tab" aria-selected="false">
               <span class="summary-label">鉴别</span>
               <strong class="summary-value heiti">4</strong>
               <span class="summary-sub">1处理中</span>
             </button>
           </section>
 
-          <!-- 方案 B：顶部强调价值感 -->
-          <section class="value-board scheme-top" id="valueBoard" data-scheme-top="b" hidden aria-label="好物概览">
+          <!-- B/D：顶部强调价值感 -->
+          <section class="value-board scheme-top" id="valueBoard" data-scheme-top="value" hidden aria-label="好物概览">
             <div class="value-side">
               <span class="value-label">想要</span>
               <span class="value-amount-label">心愿合计</span>
@@ -65,7 +68,7 @@
               </div>
             </div>
           </section>
-          <section class="summary-bar text-tabs scheme-top" id="vaultTabsB" data-scheme-top="b" hidden role="tablist" aria-label="清单">
+          <section class="summary-bar text-tabs scheme-top" id="vaultTabsB" data-scheme-top="value" hidden role="tablist" aria-label="清单">
             <button type="button" class="summary-cell active" data-pane="want" role="tab" aria-selected="true">
               <span class="summary-label">想要 <em>10</em></span>
             </button>
@@ -75,7 +78,7 @@
             <button type="button" class="summary-cell" data-pane="offer" role="tab" aria-selected="false">
               <span class="summary-label">还价 <em>6</em></span>
             </button>
-            <button type="button" class="summary-cell" data-pane="auth" role="tab" aria-selected="false">
+            <button type="button" class="summary-cell auth-tab" data-pane="auth" role="tab" aria-selected="false">
               <span class="summary-label">鉴别 <em>4</em></span>
             </button>
           </section>
@@ -749,6 +752,6 @@
           </button>
         </nav>
       </section>
-  <script src="app.js?v=50"></script>
+  <script src="app.js?v=51"></script>
 </body>
 </html>

@@ -252,15 +252,22 @@
 
   function switchScheme(scheme) {
     if (!phone || !scheme) return;
+    const topMode = scheme === "b" || scheme === "d" ? "value" : "list";
+    const hideAuth = scheme === "c" || scheme === "d";
     phone.dataset.scheme = scheme;
+    phone.classList.toggle("no-auth", hideAuth);
     phone.querySelectorAll(".scheme-switch [data-scheme]").forEach((btn) => {
       const on = btn.dataset.scheme === scheme;
       btn.classList.toggle("on", on);
       btn.setAttribute("aria-selected", on ? "true" : "false");
     });
     phone.querySelectorAll("[data-scheme-top]").forEach((el) => {
-      el.hidden = el.dataset.schemeTop !== scheme;
+      el.hidden = el.dataset.schemeTop !== topMode;
     });
+    if (hideAuth) {
+      const activePane = document.querySelector("#demo-vault .pane.active");
+      if (activePane?.dataset.pane === "auth") switchVaultPane("want");
+    }
   }
 
   phone?.querySelector(".scheme-switch")?.addEventListener("click", (e) => {
