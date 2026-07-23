@@ -169,6 +169,7 @@ button {
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
   padding: 14px 4px 12px;
+  margin-bottom: 8px;
   background: #fff;
   flex-shrink: 0;
 }
@@ -255,8 +256,13 @@ button {
   font-weight: 700;
 }
 
+.phone[data-scheme="b"] .list-module {
+  background: #f3f3f3;
+}
+
 .phone[data-scheme="b"] .value-board + .text-tabs {
-  border-top: 1px solid #f0f0f0;
+  border-top: none;
+  background: #fff;
 }
 
 .phone > .list-module {
