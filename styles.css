@@ -638,14 +638,74 @@ button {
   grid-template-columns: 1fr;
 }
 
-/* 鉴别 Tab：顶部工具入口 + 与其它 Tab 一致的列表 */
+/* 鉴别 Tab：大数字累计鉴别 + 拍图入口 */
 .auth-tool-entry {
   background: #fff;
   border-bottom: 8px solid #f5f5f5;
+  padding: 14px 16px 16px;
 }
 
-.auth-tool-entry .tool-card {
-  padding: 14px 16px;
+.auth-entry-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.auth-count-row {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 0 14px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+
+.auth-count-row:active {
+  opacity: 0.75;
+}
+
+.auth-count-num {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #111;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.auth-count-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  flex: 1;
+}
+
+.auth-count-chev {
+  font-size: 18px;
+  color: #ccc;
+  line-height: 1;
+  align-self: center;
+}
+
+.auth-cta {
+  width: 100%;
+  min-height: 46px;
+  border: none;
+  border-radius: 10px;
+  background: #111;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.auth-cta:active {
+  opacity: 0.85;
 }
 
 .tool-menu {
