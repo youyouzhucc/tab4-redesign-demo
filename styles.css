@@ -283,12 +283,12 @@ button {
   font-weight: 700;
 }
 
-.phone[data-scheme="b"] .list-module,
+.phone[data-scheme="c"] .list-module,
 .phone[data-scheme="d"] .list-module {
   background: #f3f3f3;
 }
 
-.phone[data-scheme="b"] .value-board + .text-tabs,
+.phone[data-scheme="c"] .value-board + .text-tabs,
 .phone[data-scheme="d"] .value-board + .text-tabs {
   border-top: none;
   background: #fff;

@@ -252,8 +252,9 @@
 
   function switchScheme(scheme) {
     if (!phone || !scheme) return;
-    const topMode = scheme === "b" || scheme === "d" ? "value" : "list";
-    const hideAuth = scheme === "c" || scheme === "d";
+    // A/B=清单 Tab；C/D=价值看板；B/D=无鉴别
+    const topMode = scheme === "c" || scheme === "d" ? "value" : "list";
+    const hideAuth = scheme === "b" || scheme === "d";
     phone.dataset.scheme = scheme;
     phone.classList.toggle("no-auth", hideAuth);
     phone.querySelectorAll(".scheme-switch [data-scheme]").forEach((btn) => {
